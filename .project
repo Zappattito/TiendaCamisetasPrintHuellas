@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>TiendaCamisetas</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.wst.common.project.facet.core.builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.wst.validation.validationbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jem.workbench.JavaEMFNature</nature>
+		<nature>org.eclipse.wst.common.modulecore.ModuleCoreNature</nature>
+		<nature>org.eclipse.wst.common.project.facet.core.nature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>src/main/webapp/fotos/Captura de pantalla 2024-02-26 161458.png</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/OneDrive/Im%C3%A1genes/Capturas%20de%20pantalla/Captura%20de%20pantalla%202024-02-26%20161458.png</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/fotos/Captura de pantalla 2024-02-29 203823.png</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/OneDrive/Im%C3%A1genes/Capturas%20de%20pantalla/Captura%20de%20pantalla%202024-02-29%20203823.png</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/fotos/modelo_chico_portada.jpg</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Downloads/modelo_chico_portada.jpg</locationURI>
+		</link>
+		<link>
+			<name>src/main/webapp/fotos/pata.png</name>
+			<type>1</type>
+			<locationURI>PARENT-3-PROJECT_LOC/Downloads/pata.png</locationURI>
+		</link>
+	</linkedResources>
+</projectDescription>

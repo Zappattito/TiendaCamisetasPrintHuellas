@@ -40,7 +40,7 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		
 				
 		String correo = request.getParameter("correo");
 		String contrasena = request.getParameter("contrasena");
@@ -58,7 +58,7 @@ public class LoginController extends HttpServlet {
 			System.out.println(existeUsuario);
 			
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 	}

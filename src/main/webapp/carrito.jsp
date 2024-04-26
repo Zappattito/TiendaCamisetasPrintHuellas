@@ -56,8 +56,10 @@
       </header>
     </section>
     <h1>RESUMEN DE TU PEDIDO</h1>
+    <%if (session!=null){%> 
+    	<%= session.getAttribute("correo") %>
 		<div id="pedido"></div>
-
+         <%}%>
   </section>
       <footer>
         <p>&copy; 2024 Tienda de Camisetas. Todos los derechos reservados.</p>

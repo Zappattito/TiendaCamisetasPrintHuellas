@@ -84,16 +84,19 @@ public class UsuarioDAO {
 		ResultSet rs = ps.executeQuery();
 		
 		
-		ArrayList<UsuarioModel> result = null;
+	
+		int totalFilas = 0;
 		
 		while(rs.next()){
-			if(result==null) {
-				return false;
-			}
-			return true;
+			totalFilas ++;
 		}
 		
-		return false;
+		System.out.println(totalFilas);
+		if (totalFilas>0) {
+			return true;
+		}else {
+			return false;
+		}
 	}
 		
 	}

@@ -4,6 +4,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles2.css" />
     <title>Document</title>
+   
+    <script type="text/javascript">
+
+      function llamada(){
+        fetch('GestionCamisetaController')
+        .then(response => response.json())
+        .then(data => pintarTabla(data))
+
+      }
+
+      function pintarTabla(datos){
+        let html = "<table border=2>";<!--esto no se puede hacer los estilos van en otra hoja-->
+
+        for(let i=0;i<datos.length;i++){
+          html += "<tr><td>"+datos[i].id+"</td><td>"+datos[i].modelo+"</td>";
+          html += "<td>"+datos[i].talla+"</td>";
+          html += "<td>"+datos[i].color+"</td>";
+          html += "<td>"+datos[i].foto+"</td>";
+          html += "<td>"+datos[i].cantidad+"</td>";
+          html += "<td>"+datos[i].estado+"</td>";
+          html += "</tr>";
+        }  
+        
+        html += "</table>";
+        
+        document.getElementById("pedido").innerHTML = html;
+      }
+      window.onload = function(){
+        llamada();
+      }
+    </script>
   </head>
   <body>
     <section id="menu">
@@ -16,7 +47,7 @@
             <ul id="opciones">
               <li><a href="index2.html">DISEÑA</a></li>
               <li><a href="conocenos.html">CONOCENOS</a></li>
-              <li><a href="formulario.html">MI CUENTA</a></li>
+              <li><a href="micuenta.html">MI CUENTA</a></li>
               <li id="carrito"><a href="carrito.html"><img src="img/10528208 1.png" alt="carrito" /></a>
               </li>
             </ul>
@@ -24,15 +55,16 @@
         </div>
       </header>
     </section>
-   <section id="contacto"><p>Lorem fistrum llevame al sircoo va usté muy cargadoo hasta luego Lucas ahorarr diodenoo fistro va usté muy cargadoo papaar papaar. Ahorarr de la pradera por la gloria de mi madre hasta luego Lucas. Por la gloria de mi madre llevame al sircoo no puedor sexuarl sexuarl. Tiene musho peligro fistro jarl te voy a borrar el cerito diodeno está la cosa muy malar quietooor me cago en tus muelas. Caballo blanco caballo negroorl está la cosa muy malar tiene musho peligro pecador a peich. Por la gloria de mi madre de la pradera a wan a wan al ataquerl amatomaa por la gloria de mi madre de la pradera no puedor al ataquerl. Qué dise usteer ese que llega va usté muy cargadoo diodeno fistro de la pradera diodenoo hasta luego Lucas sexuarl. Me cago en tus muelas está la cosa muy malar al ataquerl te va a hasé pupitaa pecador. Se calle ustée no te digo trigo por no llamarte Rodrigor hasta luego Lucas benemeritaar.
+    <h1>RESUMEN DE TU PEDIDO</h1>
+		<div id="pedido"></div>
 
-    Benemeritaar no puedor sexuarl me cago en tus muelas. La caidita qué dise usteer diodenoo amatomaa al ataquerl diodenoo de la pradera. Diodeno llevame al sircoo ahorarr qué dise usteer ese que llega hasta luego Lucas torpedo qué dise usteer. Te va a hasé pupitaa no te digo trigo por no llamarte Rodrigor diodenoo te voy a borrar el cerito caballo blanco caballo negroorl diodeno está la cosa muy malar mamaar. Ese que llega te voy a borrar el cerito diodeno apetecan te voy a borrar el cerito papaar papaar papaar papaar. Hasta luego Lucas qué dise usteer por la gloria de mi madre se calle ustée a wan benemeritaar a gramenawer pupita.
-    
-    Pecador la caidita no te digo trigo por no llamarte Rodrigor ese que llega de la pradera ese que llega. Por la gloria de mi madre se calle ustée caballo blanco caballo negroorl sexuarl a wan ese pedazo de. Qué dise usteer diodeno ese que llega a gramenawer. Tiene musho peligro va usté muy cargadoo hasta luego Lucas ese pedazo de pupita ese pedazo de a gramenawer se calle ustée se calle ustée. Amatomaa por la gloria de mi madre de la pradera caballo blanco caballo negroorl. Ahorarr diodenoo tiene musho peligro va usté muy cargadoo pupita a peich al ataquerl benemeritaar no puedor va usté muy cargadoo. A gramenawer hasta luego Lucas hasta luego Lucas está la cosa muy malar caballo blanco caballo negroorl. Te voy a borrar el cerito ahorarr llevame al sircoo se calle ustée ahorarr papaar papaar se calle ustée. Se calle ustée fistro a peich llevame al sircoo te voy a borrar el cerito al ataquerl.</p>   
-   </section>
+  </section>
       <footer>
         <p>&copy; 2024 Tienda de Camisetas. Todos los derechos reservados.</p>
-
+        <div>
+          <a href="https://www.instagram.com/print.huellas/"><img src="img/instagram.png" alt=""></a>
+          <a href="https://www.facebook.com/printhuellas1/?locale=es_ES"><img src="img/facebook.png" alt=""></a>
+        </div>
       </footer>
     </section>
   </body>

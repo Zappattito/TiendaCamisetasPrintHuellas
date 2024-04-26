@@ -59,4 +59,14 @@
     <servlet-name>Listado</servlet-name>
     <url-pattern>/Listado</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GestionCamiseta</display-name>
+    <servlet-name>GestionCamiseta</servlet-name>
+    <servlet-class>controlador.GestionCamiseta</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GestionCamiseta</servlet-name>
+    <url-pattern>/GestionCamiseta</url-pattern>
+  </servlet-mapping>
 </web-app>

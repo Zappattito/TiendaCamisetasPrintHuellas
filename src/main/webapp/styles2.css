@@ -1,6 +1,6 @@
 *{
-    margin: 0;
-    padding: 0;
+    margin: 0%;
+    padding: 0%;
 }
 
 header{
@@ -94,7 +94,7 @@ fieldset {
 #fs1Form, #fs2Form, #fs3Form, #fs4Form,#registroUsuario{
     display: flex;
     flex-direction: column;
-    margin-top: 20%;
+    margin-top: 5%;
 }
 
 #opcionesModelo{
@@ -206,20 +206,79 @@ footer{
     background-color: black;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     color: white;
     font-size: 200%;
     margin-top: 50px;
 }
-#registroUsuario{
+#registroUsuario, #login, #tituloLogin {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    background-color: rgb(255, 0, 166);
+    color: white;
+    flex-direction: column;
+    background-color: black;
     max-width: 400px;
     margin: 0 auto;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#historia{
+
+    background-color: black;
+    display: flex;
+    align-items: center;
+   
+
+}
+#tituloHistoria{
+    
+    color: #F66596;
+    display: flex;
+    text-align: column;
+    font-size: x-large;
+    font-family: Arial, sans-serif;
+}
+#textoHistoria{
+   
+    color: white;
+    display: flex;
+    font-size: x-large;
+    font-family: Arial, sans-serif;
+    
+   
+
+    
+}
+#fotoTienda{
+    display: flex;
+    flex-direction: row;
+    align-self: flex-end;
+}
+#ubicacionTiendas{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    
+
+}
+#tituloUbicacion{
+    color: #F66596;
+    display: flex;
+    text-align: column;
+    font-size: x-large;
+    font-family: Arial, sans-serif;
+}
+#textoUbicacion{
+  
+    display: flex;
+    margin-top: 100px;
+    flex-direction: column;
+    font-size: x-large;
+    font-family: Arial, sans-serif;
+    color: white;
+    
 }
 

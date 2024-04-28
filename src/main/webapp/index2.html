@@ -3,6 +3,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles2.css" />
+    <script src="index.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -66,14 +67,38 @@
                   <h3>COLOR</h3>
                 </div>
                 <div id="opcionesColor">
-                  <div class="color"><div id="blanco"></div></div>
-                  <div class="color"><div id="negro"></div></div>
-                  <div class="color"><div id="amarillo"></div></div>
-                  <div class="color"><div id="azul"></div></div>
-                  <div class="color"><div id="rojo"></div></div>
-                  <div class="color"><div id="rosa"></div></div>
-                  <div class="color"><div id="naranja"></div></div>
-                  <div class="color"><div id="verde"></div></div>
+                 
+                  <!-- opción funcional 1
+                    
+                  <label for="colorPicker">Selecciona un color:</label>
+                  <input type="color" id="colorPicker" onchange="seleccionarColor(event)">-->
+
+                  <!-- opcion funcional 2
+
+                  <button class="color-button" style="background-color: #FF5733" onclick="seleccionarColor('#FF5733')"></button>
+                  <button class="color-button" style="background-color: #3498DB" onclick="seleccionarColor('#3498DB')"></button>
+                  <button class="color-button" style="background-color: #27AE60" onclick="seleccionarColor('#27AE60')"></button>-->
+
+                  <label for="colorPicker">Selecciona un color:</label>
+                  <select id="colorList" onchange="actualizarColor()">
+                      <option value="#FFFFFF">Blanco</option>
+                      <option value="#3498DB">Azul</option>
+                      <option value="#F1C756">Amarillo</option>
+                      <option value="#FF5733">Rojo</option>
+                      <option value="#000000">Negro</option>
+                      <option value="#27AE60">Verde</option>
+                  <input type="color" id="colorPicker" onchange="seleccionarColor()">  
+                  <!-- botonews como está en el mocup
+
+                    <div class="color"><div id="blancoColor"></div></div>
+                  <div class="color"><div id="negroColor"></div></div>
+                  <div class="color"><div id="amarilloColor"></div></div>
+                  <div class="color"><div id="azulColor"></div></div>
+                  <div class="color"><div id="rojoColor"></div></div>
+                  <div class="color"><div id="rosaColor"></div></div>
+                  <div class="color"><div id="naranjaColor"></div></div>
+                  <div class="color"><div id="verdeColor"></div></div>-->
+                  
                 </div>
               </fieldset>
               <fieldset id="fs4Form">
@@ -94,7 +119,7 @@
         </div>
       </div>
       <div class="columnaDer">
-        <img src="img/ai-generated-8520186_640 1.png" alt="modeloFemenina" />
+        <img id="modeloMujerBlanco" src="img/ai-generated-8520186_640 1.png" alt="modeloFemenina" />
       </div>
     </section>
     <section>

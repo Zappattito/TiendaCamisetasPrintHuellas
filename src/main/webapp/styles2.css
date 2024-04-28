@@ -106,7 +106,18 @@ fieldset {
 
 
 
-#opcionesTalla, #opcionesColor{
+#opcionesTalla {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    text-align: center;
+}
+
+#opcionesColor{
+    background-color: aqua;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

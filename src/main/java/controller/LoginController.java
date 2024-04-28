@@ -61,6 +61,10 @@ public class LoginController extends HttpServlet {
 			System.out.println(existeUsuario);
 			
 			if (existeUsuario) {
+				//aqui vamos a traer el usuario de base de datos haciendo una select a traves del correo
+				//y para eso debemos crear un método en usuarioDAO como lo hemos hecho en el comprobarCuenta
+				//tambien hay que pasarle el usuartio loguin
+				//este método debe de devolver un objeto MODEL
 				
 				HttpSession sesion = request.getSession(); 
 				System.out.println(sesion);
@@ -70,6 +74,7 @@ public class LoginController extends HttpServlet {
 					sesion.setAttribute("correo", usuarioLogin.getCorreo() );
 					RequestDispatcher rd = request.getRequestDispatcher("carrito.jsp");
 					rd.forward(request, response);
+					
 				}else {
 					System.out.println("mal");
 

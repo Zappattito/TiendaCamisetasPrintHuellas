@@ -3,50 +3,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/index2.css" />
-    <script src="index.js"></script>
-    <script src="jsonPedidos.js">
-		
-	</script>
-    <title>Document</title>
-    <script type="text/javascript">
-
-      function llamada(){
-        fetch('GestionUsuariosController')
-        .then(response => response.json())
-        .then(data => pintarTabla(data))
-
-      }
-
-      function pintarTabla(datos){
-        let html = "<table border=2>";<!--esto no se puede hacer los estilos van en otra hoja-->
-
-        for(let i=0;i<datos.length;i++){
-          html += "<tr><td>"+datos[i].id+"</td><td>"+datos[i].nombre+"</td>";
-          html += "<td>"+datos[i].correo+"</td>";
-          html += "<td>"+datos[i].contrasena+"</td>";
-          html += "<td>"+datos[i].foto+"</td>";
-          html += "<td>"+datos[i].permiso+"</td>";
-          html += "<td><a href='formulario.html?id="+datos[i].id+"&op=2'>Editar</a></td><td><a href='javascript:borrar("+datos[i].id+")'>Borrar</a></td>";
-          html += "</tr>";
-        }  
-        
-        html += "</table>";
-        
-        document.getElementById("listado").innerHTML = html;
-      }
-      
-      function busquedaPorTipo(tipoUsuario){
-		
-		fetch('GestionUsuariosController?op=4&tipoUsuario='+tipoUsuario)
-			.then(response => response.json())
-			.then(data => pintarTabla(data))
-		
-	}
-      window.onload = function(){
-        llamada();
-      }
-    </script>
-    
+    <script src="js/indexAdmin.js"></script>
+    <title>Document</title>        
   </head>
   <body>
     <section id="menu">
@@ -65,24 +23,17 @@
             </ul>
           </nav>
         </div>
-        <section>
-
+      </header>  
+    </section>
+    
+      <section>
         <!-- Estoy trabajando aquí -->
-   		 <h1>Listar Usuarios</h1>   
-   		 <form name="Listado" method="get" action="GestionUsuariosController?op=1&op=4">
-				
-				<select name="tipoUsuario" onchange="busquedaPorTipo(this.value)">
-					<option value="0">...</option>
-					<option value="9">Usuarios</option>
-					<option value="1">Administrador</option>					
-				</select>
-			</form>
- 
-			<div id="listado">
-			
-			
-			
-		</div>
+   		 <h1>Listado de Usuarios</h1>   
+   		 <div id="listado">
+        
+       </div>
 
-
-      </header>
+      </section>
+    
+  </body>
+</html>

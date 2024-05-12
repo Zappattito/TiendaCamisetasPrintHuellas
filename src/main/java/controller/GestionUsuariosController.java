@@ -53,26 +53,20 @@ public class GestionUsuariosController extends HttpServlet {
     
     //METODO doGEt del servlet que sirve para obtener los datos introducidos
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		//
-		//DAO_Usuario daoUsuario = new DAO_Usuario();
-		//Me creo una Arrais list para meter los usuarios
-		//List<Usuario> listaUsuarios = daoUsuario.Consultar_Usuario();
-		//esta parte es para forzar la introduccion de unos ususarios ficticios
-//		listaUsuarios.add(new Usuario("Fatima2", "fatima@gmail.com", "12345", "12345"));
-//		listaUsuarios.add(new Usuario("Cecilia", "cecilia@gmail.com", "12345", "12345"));
-//		listaUsuarios.add(new Usuario("Norma", "norma@gmail.com", "12345", "12345"));
-
-		//aquí envío los datos a mostrarUsuarios,jsp para que me aparezcan en pantalla
-		//HttpSession misesion = request.getSession();
-		//misesion.setAttribute("listaUsuarios", listaUsuarios);
-		//response.sendRedirect("mostrarUsuarios.jsp");
+		PrintWriter out = response.getWriter();
+		String json = "";
+		try {
+			json = UsuarioDAO.getInstance().dameJson();
+			System.out.println(json);
+			out.print(json);
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	//metodo doPost que sirve para recoger los datos 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		

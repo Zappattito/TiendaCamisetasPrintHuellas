@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 import dao.UsuarioDAO;
+import model.UsuarioModel;
 
 
 
@@ -74,7 +75,7 @@ public class LoginController extends HttpServlet {
 				if (sesion != null) {
 					System.out.println("bien");
 					sesion.setAttribute("correo", usuarioLogin.getCorreo() );
-					RequestDispatcher rd = request.getRequestDispatcher("carrito.jsp");
+					RequestDispatcher rd = request.getRequestDispatcher("indexAdmin.html");
 					rd.forward(request, response);
 					
 				}else {

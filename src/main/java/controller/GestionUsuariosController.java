@@ -79,7 +79,7 @@ public class GestionUsuariosController extends HttpServlet {
 		String nombre = request.getParameter("nombre");
 		String correo = request.getParameter("correo");
 		String contrasena = request.getParameter("contrasena");
-		String confirmar_contrasena = request.getParameter("confirmar_contrasena");
+		
 		
 		
 		// aquí vamos a meter archivos estilo fotos
@@ -113,10 +113,11 @@ public class GestionUsuariosController extends HttpServlet {
 			error.print("<h4>Se ha producido un error contacte con el administrador</h4>");
 		}
 		
+		int permiso = 9;
 		
 		
 		
-		UsuarioModel u1= new UsuarioModel(nombre, correo, contrasena, confirmar_contrasena, fileName);
+		UsuarioModel u1= new UsuarioModel(nombre, correo, contrasena, fileName, permiso);
 		System.out.println(u1.toString());
 		
 		try {
@@ -125,6 +126,7 @@ public class GestionUsuariosController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 	}
 
 }

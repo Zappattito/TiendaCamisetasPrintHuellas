@@ -47,6 +47,8 @@ public class LoginController extends HttpServlet {
 				
 		String correo = request.getParameter("correo");
 		String contrasena = request.getParameter("contrasena");
+		//String permiso = request.getParameter("permiso"); // esto hay que parsearlo
+		
 		
 		System.out.println(correo);
 		System.out.println(contrasena);

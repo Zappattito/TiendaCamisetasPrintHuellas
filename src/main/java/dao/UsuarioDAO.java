@@ -45,6 +45,23 @@ public class UsuarioDAO {
 	
 		
 	}
+	
+	public UsuarioModel update(int idUsuario) throws SQLException {
+		
+		String sql = "SELECT * FROM usuario WHERE idUsuario=?";
+		PreparedStatement ps = Conex.prepareStatement(sql);
+		ps.setInt(1, idUsuario);
+		
+		ResultSet rs = ps.executeQuery();
+		
+		rs.next();
+		
+		UsuarioModel u = new UsuarioModel( rs.getInt(1),rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6));
+		
+		return u;
+	}
+	
+	
 	public ArrayList<UsuarioModel> Listar() throws SQLException{
 		
 		PreparedStatement ps = Conex.prepareStatement("SELECT * FROM usuario");//se podria poner el nombre de los campos

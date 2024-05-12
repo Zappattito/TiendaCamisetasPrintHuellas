@@ -1,6 +1,6 @@
 
       function llamada(){
-        fetch('GestionUsuariosController')
+        fetch('GestionUsuariosController?op=1')
         .then(response => response.json())
         .then(data => pintarTabla(data))
 

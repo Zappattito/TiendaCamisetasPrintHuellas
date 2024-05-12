@@ -54,18 +54,51 @@ public class GestionUsuariosController extends HttpServlet {
     //METODO doGEt del servlet que sirve para obtener los datos introducidos
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
-		String json = "";
-		try {
-			json = UsuarioDAO.getInstance().dameJson();
-			System.out.println(json);
-			out.print(json);
+		// -------------DESDE AQUI ESTOY SIGUIENDO LO QUE HACE OTERO EN EL MINUTO 3:13:51 DE LA CLASE DEL 6 ABRIL-----------
+		// --------------------------------CASI MEJOR USAR UN SWITCH--------------------------------------------------------
+		
+		
+		int opcion = Integer.parseInt(request.getParameter("op"));
+		
+		if(opcion == 2) {
+			int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
+			UsuarioModel u = new UsuarioModel();
+			try {
+				u.update(idUsuario);
+				System.out.println(u.toString());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}else if (opcion==1) {
+			String json = "";
+			try {
+				json = UsuarioDAO.getInstance().dameJson();
+				System.out.println(json);
+				out.print(json);
+				
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		
+		//----------------HASTA AQUI ES DONDE ESTOY INCORPORANDO LO DE OTERO --------------------------
+		
+		// ---------------ESTA PARTE LA TENIA BIEN PERO LA VOY A COMENTAR Y LA VOY A PONER EN EL ELSE DE ARRIBA PORQUE ASI LO HACE -----
+		//String json = "";
+		//try {
+			//json = UsuarioDAO.getInstance().dameJson();
+			//System.out.println(json);
+			//out.print(json);
+			
+			
+		//} catch (Exception e) {
+			// TODO Auto-generated catch block
+			//e.printStackTrace();
+		//}
+		//-------------HASTA AQUI DURA EL BLOQUE DE LO QUE ME FUNCIONABA EN EL PINTAR LAS TABLAS
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub

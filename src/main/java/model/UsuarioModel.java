@@ -191,7 +191,21 @@ public class UsuarioModel {
 		UsuarioDAO.getInstance().Insertar(this);
 
 	}
-	
+	public void update(int idUsuario) throws Exception {
+		UsuarioDAO.getInstance().update(idUsuario);
+		
+		this.setIdUsuario(idUsuario);
+		this.setNombre(nombre);
+		this.setCorreo(correo);
+		this.setContrasena(contrasena);
+		this.setFoto(foto);
+		this.setPermiso(permiso);
+		
+		
+		
+		
+
+	}
 	
 	
 	}

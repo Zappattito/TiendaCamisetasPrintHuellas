@@ -72,7 +72,7 @@ public class GestionCamisetaController extends HttpServlet {
 		InputStream input = part.getInputStream();
 		File file =new File(uploads,fileName);
 		int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-		String estado = request.getParameter("estado");
+		
 		try {
 			Files.copy(input, file.toPath());
 			
@@ -82,7 +82,7 @@ public class GestionCamisetaController extends HttpServlet {
 			error.print("<h4> Se ha producido un error contacte con el administrador</h4>");
 		}
 		
-		CamisetaModel c1=new CamisetaModel(modelo, talla, color, fileName, cantidad, estado);
+		CamisetaModel c1=new CamisetaModel(modelo, talla, color, fileName, cantidad);
 		System.out.println(c1.toString());
 		
 		try {
@@ -92,7 +92,7 @@ public class GestionCamisetaController extends HttpServlet {
 		}
 		
 		
-		response.sendRedirect("carrito.html");
+		response.sendRedirect("carrito.jsp");
 		
 	}
 

@@ -5,12 +5,13 @@ import java.sql.PreparedStatement;
 import dao.UsuarioDAO;
 
 public class UsuarioModel {
-
+	
+	private int idUsuario;
 	private String nombre;
 	private String correo;
 	private String contrasena;
-	private String confirmar_contrasena;
 	private String foto;
+	private int permiso;
 	
 	
 	
@@ -25,7 +26,6 @@ public class UsuarioModel {
 		this.nombre = nombre;
 		this.correo = correo;
 		this.contrasena = contrasena;
-		this.confirmar_contrasena = confirmar_contrasena;
 	}
 
 	
@@ -64,17 +64,52 @@ public class UsuarioModel {
 	public void setContrasena(String contrasena) {
 		this.contrasena = contrasena;
 	}
+	
 
 
-
-	public String getConfirmar_contrasena() {
-		return confirmar_contrasena;
+	public int getIdUsuario() {
+		return idUsuario;
 	}
 
 
 
-	public void setConfirmar_contrasena(String confirmar_contrasena) {
-		this.confirmar_contrasena = confirmar_contrasena;
+	public void setIdUsuario(int idUsuario) {
+		this.idUsuario = idUsuario;
+	}
+
+
+
+	public UsuarioModel(int idUsuario, String nombre, String correo, String contrasena, String foto, int permiso) {
+		super();
+		this.idUsuario = idUsuario;
+		this.nombre = nombre;
+		this.correo = correo;
+		this.contrasena = contrasena;
+		this.foto = foto;
+		this.permiso = permiso;
+	}
+
+
+
+	public UsuarioModel(String nombre, String correo, String contrasena, String foto, int permiso) {
+		super();
+		this.nombre = nombre;
+		this.correo = correo;
+		this.contrasena = contrasena;
+		this.foto = foto;
+		this.permiso = permiso;
+	}
+
+
+
+	public int getPermiso() {
+		return permiso;
+	}
+
+
+
+	public void setPermiso(int permiso) {
+		this.permiso = permiso;
 	}
 
 
@@ -84,7 +119,6 @@ public class UsuarioModel {
 		this.nombre = nombre;
 		this.correo = correo;
 		this.contrasena = contrasena;
-		this.confirmar_contrasena = confirmar_contrasena;
 		this.foto = foto;
 	}
 
@@ -102,11 +136,13 @@ public class UsuarioModel {
 
 
 
+
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", correo=" + correo + ", contrasena=" + contrasena
-				+ ", confirmar_contrasena=" + confirmar_contrasena + ", foto=" + foto + "]";
+		return "UsuarioModel [idUsuario=" + idUsuario + ", nombre=" + nombre + ", correo=" + correo + ", contrasena="
+				+ contrasena + ", foto=" + foto + ", permiso=" + permiso + "]";
 	}
+
 
 
 	public void Insertar() throws Exception {

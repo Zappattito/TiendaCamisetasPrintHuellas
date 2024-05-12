@@ -2,7 +2,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles2.css" />
+    <link rel="stylesheet" href="css/index2.css" />
+    <script src="index.js"></script>
     <title>Document</title>
   </head>
   <body>
@@ -29,74 +30,129 @@
           <img id="patita" src="img/pata.png" alt="logoPata" />
         </div>
         <div id="formularioCamiseta">
-          <h1>DISEÑA TU PRENDA</h1>
-          <form action="">
-            <fieldset id="fs1Form">
-              <div id="cabecera">
-                <h3>MODELO</h3>
-              </div>
-              <div id="opcionesModelo">
-                <label for="">
-                  <input type="radio" name="modelo" value="mujer" /> MUJER
-                </label>
-                <label for="">
-                  <input type="radio" name="modelo" value="hombre" /> HOMBRE
-                </label>
-                <label for="">
-                  <input type="radio" name="modelo" value="niño" /> NIÑO
-                </label>
-              </div>
+
+          <h1 id="tituloDiseña">DISEÑA TU PRENDA</h1>
+
+          <form id="gestionCamiseta" action="GestionCamisetaController" method="POST" enctype="multipart/form-data">
+
+
+            <fieldset id="modelo">
+
+                <div id="titulo"><h3>MODELO</h3></div>
+                
+                <div id="seleccion">
+                  <label>
+                      <input type="radio" name="genero" value="hombre" required>Hombre
+                  </label>
+                  <label>
+                      <input type="radio" name="genero" value="mujer" required>Mujer
+                  </label>
+                  <label>
+                      <input type="radio" name="genero" value="niño" required>Niño
+                  </label>
+                </div>
             </fieldset>
-            <fieldset id="fs2Form">
-              <div id="cabecera">
-                <h3>TALLA</h3>
-              </div>
-              <div id="opcionesTalla">
-                <!--ESTOS DEBERÍA SER UN BUTTOM-->
-                <div class="talla"><p>S</p></div>
-                <div class="talla"><p>M</p></div>
-                <div class="talla"><p>L</p></div>
-                <div class="talla"><p>XL</p></div>
-                <div class="talla"><p>XXL</p></div>              
-      
-              </div>
+
+            <fieldset id="talla">
+
+                <div id="titulo"><h3>TALLA</h3></div>        
+                
+                <div id="seleccion">              
+                
+                      <label>
+                          <input type="radio" name="XS" value="XS">XS
+                      </label>
+                      <label>
+                          <input type="radio" name="S" value="S">S
+                      </label>
+                      <label>
+                          <input type="radio" name="M" value="M">M
+                      </label>
+                      <label>
+                          <input type="radio" name="L" value="L">L
+                      </label>
+                      <label>
+                          <input type="radio" name="XL" value="XL">XL
+                      </label>                  
+                </div>
+
             </fieldset>
-            <fieldset id="fs3Form">
-                <div id="cabecera">
-                  <h3>COLOR</h3>
-                </div>
-                <div id="opcionesColor">
-                  <div class="color"><div id="blanco"></div></div>
-                  <div class="color"><div id="negro"></div></div>
-                  <div class="color"><div id="amarillo"></div></div>
-                  <div class="color"><div id="azul"></div></div>
-                  <div class="color"><div id="rojo"></div></div>
-                  <div class="color"><div id="rosa"></div></div>
-                  <div class="color"><div id="naranja"></div></div>
-                  <div class="color"><div id="verde"></div></div>
-                </div>
-              </fieldset>
-              <fieldset id="fs4Form">
-                <div id="cabecera">
-                  <h3>SUBE TU DISEÑO</h3>
-                </div>
-                <div id="opcionesDiseno">
-                    <input type="file">
-                </div>
-              </fieldset>
-                  
+
+            <fieldset id="cantidad">
+                
+            <div id="titulo"><h3>CANTIDAD</h3></div>
+            
+            <div id="seleccion">
+
+              <select id="cantidadCamisetas" name="cantidadCamisetas">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <!-- Puedes agregar más opciones según sea necesario -->
+            </select>
+
+            </div>
+            
+            </fieldset>
+
+            <fieldset id="color">
+                
+                <div id="titulo"><h3>COLOR</h3></div>                                       
+                
+                <div id="seleccion">
+                    <select id="colorList" onchange="actualizarColor()">
+                      <option value="#FFFFFF">Blanco</option>
+                      <option value="#3498DB">Azul</option>
+                      <option value="#F1C756">Amarillo</option>
+                      <option value="#FF5733">Rojo</option>
+                      <option value="#000000">Negro</option>
+                      <option value="#27AE60">Verde</option>                                    
+                </div>     
+            </fieldset>   
+
+            
+
+          <fieldset id="cantidad">
+                
+              <div id="titulo"><h3>CANTIDAD</h3></div>                                       
               
-           
-            </form>
+              <div id="seleccion">
+                  <select id="colorList" onchange="actualizarColor()">
+                                                       
+              </div>     
+          
+
+          </fieldset>
+
+          <fieldset id="imagen">
+
+                <div id="titulo"><h3>SUBE TU DISEÑO</h3></div>
+                
+                <div id="seleccion"><input type="file"></div>  
+                        
+                   
+          </fieldset>                  
+                                 
+          <input  id="enviar" type="submit" value="Tramitar Pedido">
+                  
+         </form>
+
+            
         </div>
+
         <div id="pataInf">
           <img id="patita" src="img/pata.png" alt="logoPata" />
         </div>
       </div>
       <div class="columnaDer">
-        <img src="img/ai-generated-8520186_640 1.png" alt="modeloFemenina" />
+
+        <img id="modeloMujerBlanco" src="img/ai-generated-8520186_640 1.png" alt="modeloFemenina" />
       </div>
+
     </section>
+
     <section>
       <footer>
         <p>&copy; 2024 Tienda de Camisetas. Todos los derechos reservados.</p>

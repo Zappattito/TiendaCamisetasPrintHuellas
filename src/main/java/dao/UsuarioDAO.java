@@ -32,13 +32,13 @@ public class UsuarioDAO {
 	}
 	public void Insertar(UsuarioModel x) throws SQLException {
 		
-		String sql = "INSERT INTO usuario (nombre, correo, contrasena, confirmar_contrasena, foto) VALUES (?,?,?,?,?)";
+		String sql = "INSERT INTO usuario (nombre, correo, contrasena, foto, permiso) VALUES (?,?,?,?,?)";
 		PreparedStatement ps = Conex.prepareStatement(sql);
 		ps.setString(1, x.getNombre());
 		ps.setString(2, x.getCorreo());
 		ps.setString(3, x.getContrasena());
-		ps.setString(4, x.getConfirmar_contrasena());
-		ps.setString(5, x.getFoto());
+		ps.setString(4, x.getFoto());
+		ps.setInt(5, x.getPermiso());
 		
 		int filas = ps.executeUpdate();
 		ps.close();

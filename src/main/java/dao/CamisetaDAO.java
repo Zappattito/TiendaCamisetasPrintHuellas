@@ -27,14 +27,14 @@ public class CamisetaDAO {
 	//creo el metodo Insert para incluirle los atributos al objeto camiseta
 	public void Insert(CamisetaModel x) throws SQLException {
 		
-		String sql ="INSERT INTO camiseta (modelo, talla, color, foto, cantidad, estado) VALUES (?,?,?,?,?,?)";
+		String sql ="INSERT INTO camiseta (modelo, talla, cantidad, color, foto) VALUES (?,?,?,?,?)";
 		PreparedStatement ps = Conex.prepareStatement(sql);
 		ps.setString(1, x.getModelo());
 		ps.setString(2, x.getTalla());
 		ps.setString(3, x.getColor());
 		ps.setString(4, x.getFoto());
 		ps.setInt(5, x.getCantidad());
-		ps.setString(6, x.getEstado());
+		
 		
 		int filas = ps.executeUpdate();
 		ps.close();
@@ -51,7 +51,7 @@ public class CamisetaDAO {
 			if(result==null) {
 				result = new ArrayList<>();
 			}
-			result.add(new CamisetaModel( rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6), rs.getString(7)));
+			result.add(new CamisetaModel( rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getInt(6)));
 		}
 		return result;
 	}

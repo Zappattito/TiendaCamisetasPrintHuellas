@@ -31,14 +31,14 @@ public class CamisetaModel {
 	}
 	
 
-	public CamisetaModel(String modelo, String talla, String color, String foto, int cantidad, String estado) {
+	public CamisetaModel(String modelo, String talla, String color, String foto, int cantidad) {
 		super();
 		this.modelo = modelo;
 		this.talla = talla;
 		this.color = color;
 		this.foto = foto;
 		this.cantidad = cantidad;
-		this.estado = estado;
+		
 	}
 
 	public int getCantidad() {

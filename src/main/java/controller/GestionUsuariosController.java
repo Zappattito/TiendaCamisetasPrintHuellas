@@ -115,12 +115,13 @@ public class GestionUsuariosController extends HttpServlet {
 		System.out.println(u1.toString());
 		
 		try {
-			u1.Insertar();
+			u1.insertar();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
+		response.sendRedirect("micuenta.html");
 	}
 
 }

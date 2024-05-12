@@ -15,7 +15,7 @@
           html += "<td>"+datos[i].contrasena+"</td>"
           html += "<td>"+datos[i].foto+"</td>"
           html += "<td>"+datos[i].permiso+"</td>"
-          //html += "<td><a href='formulario.html?id="+datos[i].id+"&op=2'>Editar</a></td><td><a href='javascript:borrar("+datos[i].id+")'>Borrar</a></td>";
+          html += "<td><a href='formulario.html?id="+datos[i].id+"&op=2'>Editar</a></td><td><a href='javascript:borrar("+datos[i].id+")'>Borrar</a></td>";
           html += "</tr>"
         }  
         

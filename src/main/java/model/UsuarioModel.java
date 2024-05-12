@@ -187,10 +187,11 @@ public class UsuarioModel {
 	 * @throws Exception Atrapamos las posibles excepciones
 	 */
 
-	public void Insertar() throws Exception {
+	public void insertar() throws Exception {
 		UsuarioDAO.getInstance().Insertar(this);
 
 	}
+	
 	
 	
 	}

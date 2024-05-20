@@ -69,4 +69,14 @@
     <servlet-name>GestionCamiseta</servlet-name>
     <url-pattern>/GestionCamiseta</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ActualizarUsuarioController</display-name>
+    <servlet-name>ActualizarUsuarioController</servlet-name>
+    <servlet-class>controller.ActualizarUsuarioController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActualizarUsuarioController</servlet-name>
+    <url-pattern>/ActualizarUsuarioController</url-pattern>
+  </servlet-mapping>
 </web-app>

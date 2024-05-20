@@ -13,12 +13,11 @@ public class CamisetaModel {
 	private String foto;
 	private int cantidad;
 	private String estado;
-	
-	public CamisetaModel () {
-		
+
+	public CamisetaModel() {
+
 	}
-	
-	
+
 	public CamisetaModel(int id, String modelo, String talla, String color, String foto, int cantidad, String estado) {
 		super();
 		this.id = id;
@@ -29,7 +28,6 @@ public class CamisetaModel {
 		this.cantidad = cantidad;
 		this.estado = estado;
 	}
-	
 
 	public CamisetaModel(String modelo, String talla, String color, String foto, int cantidad) {
 		super();
@@ -38,7 +36,7 @@ public class CamisetaModel {
 		this.color = color;
 		this.foto = foto;
 		this.cantidad = cantidad;
-		
+
 	}
 
 	public int getCantidad() {
@@ -65,7 +63,7 @@ public class CamisetaModel {
 		this.color = color;
 		this.foto = foto;
 	}
-	
+
 	public CamisetaModel(String modelo, String talla, String color, String foto) {
 		super();
 		this.modelo = modelo;
@@ -73,46 +71,55 @@ public class CamisetaModel {
 		this.color = color;
 		this.foto = foto;
 	}
+
 	public int getId() {
 		return id;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public String getModelo() {
 		return modelo;
 	}
+
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
+
 	public String getTalla() {
 		return talla;
 	}
+
 	public void setTalla(String talla) {
 		this.talla = talla;
 	}
+
 	public String getColor() {
 		return color;
 	}
+
 	public void setColor(String color) {
 		this.color = color;
 	}
+
 	public String getFoto() {
 		return foto;
 	}
+
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Camiseta [id=" + id + ", modelo=" + modelo + ", talla=" + talla + ", color=" + color + ", foto=" + foto
 				+ ", cantidad=" + cantidad + ", estado=" + estado + "]";
 	}
-	
+
 	public void Insert() throws Exception {
 		CamisetaDAO.getInstance().Insert(this);
 	}
-	
-	
+
 }

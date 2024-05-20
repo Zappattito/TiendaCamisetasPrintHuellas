@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulario de Pedido</title>
 
-  <!--<script type="text/javascript">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Formulario de Pedido</title>
+
+	<!--<script type="text/javascript">
       function validarFormulario(){
         let modelo = document. getElementById('genero').value;
         let talla = document. getElementById('talla').value;
@@ -46,41 +47,43 @@
       }
 
   </script>-->
-  
+
 </head>
+
 <body>
 
-  <h1>Formulario de Pedido</h1>
+	<h1>Formulario de Pedido</h1>
 
-  <form id="gestionCamiseta" action="GestionCamisetaController" method="post" enctype="multipart/form-data" >
+	<form id="gestionCamiseta" action="GestionCamisetaController" method="post" enctype="multipart/form-data">
 
-    <label for="modelo">Modelo:</label>
-    <input type="text" id="modelo" name="modelo" placeholder="Escribe tu género (Hombre, Mujer, Niño)">
+		<label for="modelo">Modelo:</label>
+		<input type="text" id="modelo" name="modelo" placeholder="Escribe tu género (Hombre, Mujer, Niño)">
 
-    <label for="talla">Talla:</label>
-    <input type="text" id="talla" name="talla" placeholder="Escribe tu talla (S, M, L, XL, XXL)">
+		<label for="talla">Talla:</label>
+		<input type="text" id="talla" name="talla" placeholder="Escribe tu talla (S, M, L, XL, XXL)">
 
-    <label for="color">Color:</label>
-    <input type="text" id="color" name="color" placeholder="Escribe tu color preferido">
+		<label for="color">Color:</label>
+		<input type="text" id="color" name="color" placeholder="Escribe tu color preferido">
 
-    <label for="foto">Subir Foto:</label>
-    <input type="file" id="foto" name="foto" accept="image/*">
+		<label for="foto">Subir Foto:</label>
+		<input type="file" id="foto" name="foto" accept="image/*">
 
-    <label for="cantidad">Cantidad:</label>
-    <input type="text" id="cantidad" name="cantidad" placeholder="cantidad">
+		<label for="cantidad">Cantidad:</label>
+		<input type="text" id="cantidad" name="cantidad" placeholder="cantidad">
 
-    <label for="estado">Estado:</label>
-    <input type="text" id="estado" name="estado" placeholder="Estado de tu camiseta">
+		<label for="estado">Estado:</label>
+		<input type="text" id="estado" name="estado" placeholder="Estado de tu camiseta">
 
-    <input type="submit" value="Enviar Pedido">
-    
-
-  
-  
+		<input type="submit" value="Enviar Pedido">
 
 
-   
-  </form>
+
+
+
+
+
+	</form>
 
 </body>
+
 </html>

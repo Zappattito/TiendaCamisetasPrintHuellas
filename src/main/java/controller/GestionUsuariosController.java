@@ -3,6 +3,7 @@
 //del paquete llamado controlador
 
 package controller;
+
 //aqui estoy importando las librerias de jakarta para el uso de mi servlet
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.MultipartConfig;
@@ -34,126 +35,114 @@ import dao.UsuarioDAO;
 @WebServlet("/GestionUsuariosController")
 public class GestionUsuariosController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	//añadimos un atributo al servlet
+	// añadimos un atributo al servlet
 	// aqui va la ruta de los archivos
 	private String pathFiles = "C:\\Users\\zappa\\Documents\\FP_DAM\\TiendaCamisetas\\src\\main\\webapp\\fotos";
 	private File uploads = new File(pathFiles);
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public GestionUsuariosController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-    
-    //METODO doGEt del servlet que sirve para obtener los datos introducidos
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		// -------------DESDE AQUI ESTOY SIGUIENDO LO QUE HACE OTERO EN EL MINUTO 3:13:51 DE LA CLASE DEL 6 ABRIL-----------
-		// --------------------------------CASI MEJOR USAR UN SWITCH--------------------------------------------------------
-		
-		
-		int opcion = Integer.parseInt(request.getParameter("op"));
-		
-		if(opcion == 2) {
-			int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
-			UsuarioModel u = new UsuarioModel();
-			try {
-				u.update(idUsuario);
-				System.out.println(u.toString());
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}else if (opcion==1) {
-			String json = "";
-			try {
-				json = UsuarioDAO.getInstance().dameJson();
-				System.out.println(json);
-				out.print(json);
-				
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			
-		}
-		
-		//----------------HASTA AQUI ES DONDE ESTOY INCORPORANDO LO DE OTERO --------------------------
-		
-		// ---------------ESTA PARTE LA TENIA BIEN PERO LA VOY A COMENTAR Y LA VOY A PONER EN EL ELSE DE ARRIBA PORQUE ASI LO HACE -----
-		//String json = "";
-		//try {
-			//json = UsuarioDAO.getInstance().dameJson();
-			//System.out.println(json);
-			//out.print(json);
-			
-			
-		//} catch (Exception e) {
-			// TODO Auto-generated catch block
-			//e.printStackTrace();
-		//}
-		//-------------HASTA AQUI DURA EL BLOQUE DE LO QUE ME FUNCIONABA EN EL PINTAR LAS TABLAS
+	public GestionUsuariosController() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+
+	// METODO doGEt del servlet que sirve para obtener los datos introducidos
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		PrintWriter out = response.getWriter();
+		// -------------DESDE AQUI ESTOY SIGUIENDO LO QUE HACE OTERO EN EL MINUTO
+		// 3:13:51 DE LA CLASE DEL 6 ABRIL-----------
+		// --------------------------------CASI MEJOR USAR UN
+		// SWITCH--------------------------------------------------------
+
+		String json = "";
+		try {
+			json = UsuarioDAO.getInstance().dameJson();
+			out.print(json);
+
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	// ----------------HASTA AQUI ES DONDE ESTOY INCORPORANDO LO DE OTERO
+	// --------------------------
+
+	// ---------------ESTA PARTE LA TENIA BIEN PERO LA VOY A COMENTAR Y LA VOY A
+	// PONER EN EL ELSE DE ARRIBA PORQUE ASI LO HACE -----
+	// String json = "";
+	// try {
+	// json = UsuarioDAO.getInstance().dameJson();
+	// System.out.println(json);
+	// out.print(json);
+
+	// } catch (Exception e) {
+	// TODO Auto-generated catch block
+	// e.printStackTrace();
+	// }
+	// -------------HASTA AQUI DURA EL BLOQUE DE LO QUE ME FUNCIONABA EN EL PINTAR
+	// LAS TABLAS
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+
 		String nombre = request.getParameter("nombre");
 		String correo = request.getParameter("correo");
 		String contrasena = request.getParameter("contrasena");
-		
-		
-		
+		String idUsuario = request.getParameter("idUsuario");
+
 		// aquí vamos a meter archivos estilo fotos
-		
+
 		/*
-		 * ruta
-		 * datos
-		 * NombreArchivo         buffer		File <--- datos -> BD guardaremos el archivo
+		 * ruta datos NombreArchivo buffer File <--- datos -> BD guardaremos el archivo
 		 * 
-		 * ORIGEN                ----->         DESTINO 
-		 * 						 CAMINO
+		 * ORIGEN -----> DESTINO CAMINO
 		 * 
 		 */
 		// Lectura de datos desde el cliente
-		Part part = request.getPart("foto");//datos binarios de la foto
-		// Nombre del artchivo en origen, mediante un objeto path para gestionar una ruta
-		Path path = Paths.get(part.getSubmittedFileName());//me da el nombre del archivo original
-		String fileName = path.getFileName().toString();//creo el string que va directo a la base de datos
-		
-		//tengo que crear el camino el BUFFER por donde voy a trasmitir los datos que he adquirido
+		Part part = request.getPart("foto");// datos binarios de la foto
+		// Nombre del artchivo en origen, mediante un objeto path para gestionar una
+		// ruta
+		Path path = Paths.get(part.getSubmittedFileName());// me da el nombre del archivo original
+		String fileName = path.getFileName().toString();// creo el string que va directo a la base de datos
+
+		// tengo que crear el camino el BUFFER por donde voy a trasmitir los datos que
+		// he adquirido
 		InputStream input = part.getInputStream();
-		
-		//despues de la ruta donde voy a hacer el copiado de la foto
-		
-		File file = new File(uploads,fileName);
+
+		// despues de la ruta donde voy a hacer el copiado de la foto
+
+		File file = new File(uploads, fileName);
 		try {
 			Files.copy(input, file.toPath());
-		}catch (Exception e) {
+		} catch (Exception e) {
 			System.out.println("error en la copia del archivo");
 			PrintWriter error = response.getWriter();
 			error.print("<h4>Se ha producido un error contacte con el administrador</h4>");
 		}
-		
+
 		int permiso = 9;
-		
-		
-		
-		UsuarioModel u1= new UsuarioModel(nombre, correo, contrasena, fileName, permiso);
+
+		UsuarioModel u1 = new UsuarioModel(nombre, correo, contrasena, fileName, permiso);
 		System.out.println(u1.toString());
-		
+
 		try {
 			u1.insertar();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 		response.sendRedirect("micuenta.html");
 	}
 

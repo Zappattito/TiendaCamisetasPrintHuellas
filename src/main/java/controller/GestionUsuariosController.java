@@ -19,9 +19,13 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintWriter;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -54,6 +58,23 @@ public class GestionUsuariosController extends HttpServlet {
 	 */
 
 	// METODO doGEt del servlet que sirve para obtener los datos introducidos
+	private String getMD5(String input) {
+		if(input == null) {
+			return null;
+		}
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			byte[] messageDigest = md.digest(input.getBytes(StandardCharsets.UTF_8));
+			BigInteger number = new BigInteger(1, messageDigest);
+			String hashtext = number.toString(16);
+			while (hashtext.length()<32) {
+				hashtext = "0" + hashtext;
+			}
+			return hashtext;
+		}catch(NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
@@ -98,7 +119,7 @@ public class GestionUsuariosController extends HttpServlet {
 
 		String nombre = request.getParameter("nombre");
 		String correo = request.getParameter("correo");
-		String contrasena = request.getParameter("contrasena");
+		String contrasena = getMD5(request.getParameter("contrasena"));
 		String idUsuario = request.getParameter("idUsuario");
 
 		// aquí vamos a meter archivos estilo fotos

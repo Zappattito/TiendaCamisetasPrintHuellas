@@ -10,6 +10,10 @@ import model.UsuarioModel;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 /**
  * Servlet implementation class ActualizarUsuarioController
@@ -30,6 +34,24 @@ public class ActualizarUsuarioController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	
+	private String getMD5(String input) {
+		if(input == null) {
+			return null;
+		}
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			byte[] messageDigest = md.digest(input.getBytes(StandardCharsets.UTF_8));
+			BigInteger number = new BigInteger(1, messageDigest);
+			String hashtext = number.toString(16);
+			while (hashtext.length()<32) {
+				hashtext = "0" + hashtext;
+			}
+			return hashtext;
+		}catch(NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -65,7 +87,7 @@ public class ActualizarUsuarioController extends HttpServlet {
 
 		String nombre = request.getParameter("nombre");
 		String correo = request.getParameter("correo");
-		String contrasena = request.getParameter("contrasena");
+		String contrasena = getMD5(request.getParameter("contrasena"));
 		String foto = request.getParameter("foto");
 
 		// Verifica si el parámetro "idUsuario" no es nulo antes de convertirlo a un
@@ -112,15 +134,17 @@ public class ActualizarUsuarioController extends HttpServlet {
 		 **/
 
 	}
-	protected void doPut(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		
+
+	protected void doPut(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		String nombre = request.getParameter("nombre");
 		String correo = request.getParameter("correo");
-		String contrasena = request.getParameter("contrasena");
+		String contrasena = getMD5(request.getParameter("contrasena"));
 		String foto = request.getParameter("foto");
-		int permiso = Integer.parseInt(request.getParameter("permiso"));		
+		int permiso = Integer.parseInt(request.getParameter("permiso"));
 		int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
-		
+
 		UsuarioModel uEditar = new UsuarioModel(idUsuario, nombre, correo, contrasena, foto, permiso);
 		System.out.println(uEditar);
 		try {
@@ -129,12 +153,12 @@ public class ActualizarUsuarioController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 	}
-	
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		
+
+	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
 		int idUsuario = Integer.parseInt(request.getParameter("idUsuario"));
 		UsuarioModel UsuarioModel = new UsuarioModel();
 		try {

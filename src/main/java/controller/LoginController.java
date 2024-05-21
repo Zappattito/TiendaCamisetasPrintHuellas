@@ -11,6 +11,10 @@ import model.UsuarioModel;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import dao.UsuarioDAO;
 import model.UsuarioModel;
@@ -34,6 +38,23 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
 	 */
+	private String getMD5(String input) {
+		if(input == null) {
+			return null;
+		}
+		try {
+			MessageDigest md = MessageDigest.getInstance("MD5");
+			byte[] messageDigest = md.digest(input.getBytes(StandardCharsets.UTF_8));
+			BigInteger number = new BigInteger(1, messageDigest);
+			String hashtext = number.toString(16);
+			while (hashtext.length()<32) {
+				hashtext = "0" + hashtext;
+			}
+			return hashtext;
+		}catch(NoSuchAlgorithmException e) {
+			throw new RuntimeException(e);
+		}
+	}
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
@@ -48,7 +69,7 @@ public class LoginController extends HttpServlet {
 			throws ServletException, IOException {
 
 		String correo = request.getParameter("correo");
-		String contrasena = request.getParameter("contrasena");
+		String contrasena = getMD5(request.getParameter("contrasena"));
 		// String permiso = request.getParameter("permiso"); // esto hay que parsearlo
 
 		System.out.println(correo);

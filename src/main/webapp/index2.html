@@ -4,6 +4,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="css/index2.css" />
+	<script src="js/index2.js"></script>
 	<title>Document</title>
 
 </head>
@@ -123,27 +124,16 @@
 
 
 
-					<fieldset id="cantidad">
-
-						<div id="titulo">
-							<h3>CANTIDAD</h3>
-						</div>
-
-						<div id="seleccion">
-							<select id="colorList" onchange="actualizarColor()">
-
-						</div>
-
-
-					</fieldset>
 
 					<fieldset id="imagen">
 
 						<div id="titulo">
 							<h3>SUBE TU DISEÑO</h3>
+							<label for="imageInput">Selecciona una imagen:</label>
+							<input type="file" id="imageInput" accept="image/*">
 						</div>
 
-						<div id="seleccion"><input type="file"></div>
+						
 
 
 					</fieldset>
@@ -162,6 +152,7 @@
 		<div class="columnaDer">
 
 			<img id="modeloMujerBlanco" src="img/ai-generated-8520186_640 1.png" alt="modeloFemenina" />
+			<div id="diseno"><h3>Inserta aquí tu diseño</h3></div>
 		</div>
 
 	</section>

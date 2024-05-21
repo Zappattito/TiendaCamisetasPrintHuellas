@@ -48,168 +48,7 @@ nav ul li {
     height: 177px;
     margin: 0 0 12px 48px;
 }
-
-#carrito{
-
-}
-
-#contenidoWeb{
-    display: flex;
-    flex-direction: row;
-}
-
-.columnaIzq{
-    background-color: black;
-    width: 450px;
-    height: 1113px;
-}
-
-#pataSup{
-    height: 20%;
-    transform: rotate(180deg);
-    display: flex;
-    flex-direction: column-reverse;
-}
-
-
-#cabecera{
-    margin-left: 10px;
-}
-    
-#formularioCamiseta{
-    height: 60%;
-    color: white;
-}
-
-#formularioCamiseta h1{
-    color: #F66596;
-    font-family: Arial, sans-serif;
-    text-align: center;    
-}
-
-fieldset {
-    border: none;
-  }
-
-#fs1Form, #fs2Form, #fs3Form, #fs4Form,#registroUsuario{
-    display: flex;
-    flex-direction: column;
-    margin-top: 5%;
-}
-
-#opcionesModelo{
-    margin-left: 15px;
-    margin-top: 15px;
-    display: flex;
-    flex-direction: column;
-}
-
-
-
-#opcionesTalla {
-    
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 25px;
-    margin-top: 25px;
-    text-align: center;
-}
-
-#opcionesColor{
-    background-color: aqua;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 25px;
-    margin-top: 25px;
-    text-align: center;
-}
-
-.talla{
-    display: flex;
-    background-color: white;
-    width: 48px;
-    height: 38px;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    font-family: Arial, sans-serif;
-    font-weight: bold;
-}
-
-.color{
-    width: 16px;
-    height: 16px;
-}
-
-#blanco{
-    border-radius: 50%;
-    background-color: white;
-    width: 15px;
-    height: 15px;
-}
-#rojo{
-    border-radius: 50%;
-    background-color: red;
-    width: 15px;
-    height: 15px;
-}
-#negro{
-    border-radius: 50%;
-    background-color: grey;
-    width: 15px;
-    height: 15px;
-}
-#amarillo{
-    border-radius: 50%;
-    background-color: yellow;
-    width: 15px;
-    height: 15px;
-}
-#azul{
-    border-radius: 50%;
-    background-color: blue;
-    width: 15px;
-    height: 15px;
-}
-#rosa{
-    border-radius: 50%;
-    background-color: #F66596;
-    width: 15px;
-    height: 15px;
-}
-#naranja{
-    border-radius: 50%;
-    background-color: orange;
-    width: 15px;
-    height: 15px;
-}
-#verde{
-    border-radius: 50%;
-    background-color: green;
-    width: 15px;
-    height: 15px;
-}
-
-
-#pataInf{
-    height: 20%;
-    display: flex;
-    flex-direction: column-reverse;
-
-}
-
-#patita{
-    width: 105px;
-    height: 98px;
-}
-
-.columnaDer{
-    width: 1017px;
-    height: 1113px;
-    background-color: palevioletred;
-}
+   
 
 footer{
     width: 100%;
@@ -222,74 +61,73 @@ footer{
     font-size: 200%;
     margin-top: 50px;
 }
-#registroUsuario, #login, #tituloLogin {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    flex-direction: column;
-    background-color: black;
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
+
 
 #historia{
-
-    background-color: black;
+    width: 100%;
     display: flex;
+    justify-content: space space-around;
     align-items: center;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: black;
+    
+   
    
 
 }
 #tituloHistoria{
-    
-    color: #F66596;
-    display: flex;
-    text-align: column;
+    flex: 1;
+    text-align: left;
+    color: #F66596;   
     font-size: x-large;
     font-family: Arial, sans-serif;
+    margin-left: 20px;
 }
 #textoHistoria{
-   
+    flex: 1;
+    text-align: center;
     color: white;
-    display: flex;
     font-size: x-large;
     font-family: Arial, sans-serif;
     
-   
-
+      
     
 }
 #fotoTienda{
-    display: flex;
-    flex-direction: row;
-    align-self: flex-end;
+   flex: 1;
+   text-align: center;
+   max-width: 600px;
 }
 #ubicacionTiendas{
-    background-color: black;
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: black;
     
 
 }
 #tituloUbicacion{
-    color: #F66596;
-    display: flex;
-    text-align: column;
+    flex: 1;
+    text-align: left;
+    color: #F66596;   
     font-size: x-large;
     font-family: Arial, sans-serif;
+
 }
 #textoUbicacion{
-  
-    display: flex;
-    margin-top: 100px;
-    flex-direction: column;
+    flex: 1;
+    text-align: left;
+    color: white;
     font-size: x-large;
     font-family: Arial, sans-serif;
-    color: white;
+    margin-left: -300px;  
     
 }
-
+#ubicacionFoto{
+    flex: 1;
+    text-align: right;
+    max-width: 650px
+}

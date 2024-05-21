@@ -28,11 +28,9 @@
 		</header>
 	</section>
 	<section id="formulario">
-		<header>
+		
 			<h1>Alta de Usuario</h1>
-		</header>
-
-		<main>
+			
 			<form name="altas" id="registroUsuario" action="GestionUsuariosController" method="post"
 				enctype="multipart/form-data">
 
@@ -42,33 +40,15 @@
 					<li><label>Correo Electronico</label><input id="correo" type="email" name="correo"></li>
 					<li><label>Contraseña</label><input id="contrasena" type="password" name="contrasena"></li>
 					<li><label>Foto</label><input id="foto" type="file" name="foto" accept="image/*"></li>
-					<!--<li> <select name="permiso">
-
-							<option value="0">...</option>
-							<option value="1">Usuario registrado</option>
-							<option value="9">Usuario administrador</option>
-
-						</select></li>-->
+				
 					<li><input type="submit" onclick="validarFormulario()" value="Registrarse"></li>
 				</ul>
-				<!--<label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
-            
-            <label for="correo">Correo electrónico:</label>
-            <input type="email" id="correo" name="correo" required>
-            
-            <label for="contrasena">Contraseña:</label>
-            <input type="password" id="contrasena" name="contrasena" required>
-         
-           
-            <label for="foto">Foto:</label>
-            <input type="file" id="foto" name="foto" accept="image/*">
-            
-            <input type="submit" value="Registrarse">-->
+	
 			</form>
+
 	</section>
 
-	</main>
+	
 
 	<section>
 		<footer>

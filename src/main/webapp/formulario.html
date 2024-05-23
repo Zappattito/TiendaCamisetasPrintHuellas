@@ -1,37 +1,57 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/formulario.css" />
-    <title>Document</title>
-  </head>
-  <body>
-    <section id="menu">
-        <header>
-          <div class="logo"><a href="index2.html"><img src="img/Group 6.png" alt="logo" /></a>
-           
-          </div>
-          <div id="menuOpciones">
-            <nav>
-              <ul id="opciones">
-                <li><a href="index2.html">DISEÑA</a></li>
-                <li><a href="conocenos.html">CONOCENOS</a></li>
-                <li><a href="micuenta.html">MI CUENTA</a></li>
-                <li id="carrito"><a href="carrito.html"><img src="img/10528208 1.png" alt="carrito" /></a>             
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </header>
-      </section>
-    <section id="formulario">
-    <header>
-        <h1>Alta de Usuario</h1>
-    </header>
 
-    <main>
-        <form id="registroUsuario" action="GestionUsuariosController" method="POST" enctype="multipart/form-data">
-            <label for="nombre">Nombre:</label>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/formulario.css" />
+	<script src="js/formulario.js"></script>
+	<title>Document</title>
+</head>
+
+<body>
+	<section id="menu">
+		<header>
+			<div class="logo"><a href="index2.html"><img src="img/Group 6.png" alt="logo" /></a>
+
+			</div>
+			<div id="menuOpciones">
+				<nav>
+					<ul id="opciones">
+						<li><a href="index2.html">DISEÑA</a></li>
+						<li><a href="conocenos.html">CONOCENOS</a></li>
+						<li><a href="micuenta.html">MI CUENTA</a></li>
+						<li id="carrito"><a href="carrito.html"><img src="img/10528208 1.png" alt="carrito" /></a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+	</section>
+	<section id="formulario">
+		<header>
+			<h1>Alta de Usuario</h1>
+		</header>
+
+		<main>
+			<form name="altas" id="registroUsuario" action="GestionUsuariosController" method="post"
+				enctype="multipart/form-data">
+
+				<ul>
+					<input type="hidden" id="idUsuario" name="id">
+					<li><label>Nombre</label><input id="nombre" type="text" name="nombre"></li>
+					<li><label>Correo Electronico</label><input id="correo" type="email" name="correo"></li>
+					<li><label>Contraseña</label><input id="contrasena" type="password" name="contrasena"></li>
+					<li><label>Foto</label><input id="foto" type="file" name="foto" accept="image/*"></li>
+					<!--<li> <select name="permiso">
+
+							<option value="0">...</option>
+							<option value="1">Usuario registrado</option>
+							<option value="9">Usuario administrador</option>
+
+						</select></li>-->
+					<li><input type="submit" onclick="validarFormulario()" value="Registrarse"></li>
+				</ul>
+				<!--<label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
             
             <label for="correo">Correo electrónico:</label>
@@ -44,20 +64,21 @@
             <label for="foto">Foto:</label>
             <input type="file" id="foto" name="foto" accept="image/*">
             
-            <input type="submit" value="Registrarse">
-        </form>
-    </section>   
-            
-    </main>
+            <input type="submit" value="Registrarse">-->
+			</form>
+	</section>
 
-    <section>
-      <footer>
-        <p>&copy; 2024 Tienda de Camisetas. Todos los derechos reservados.</p>
-        <div>
-          <a href="https://www.instagram.com/print.huellas/"><img src="img/instagram.png" alt=""></a>
-          <a href="https://www.facebook.com/printhuellas1/?locale=es_ES"><img src="img/facebook.png" alt=""></a>
-        </div>
-      </footer>
-    </section>
-  </body>
+	</main>
+
+	<section>
+		<footer>
+			<p>&copy; 2024 Tienda de Camisetas. Todos los derechos reservados.</p>
+			<div>
+				<a href="https://www.instagram.com/print.huellas/"><img src="img/instagram.png" alt=""></a>
+				<a href="https://www.facebook.com/printhuellas1/?locale=es_ES"><img src="img/facebook.png" alt=""></a>
+			</div>
+		</footer>
+	</section>
+</body>
+
 </html>

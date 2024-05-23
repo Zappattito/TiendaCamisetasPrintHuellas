@@ -1,166 +1,180 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/index2.css" />
-    <script src="index.js"></script>
-    <title>Document</title>
-  </head>
-  <body>
-    <section id="menu">
-      <header>
-        <div class="logo"><a href="index2.html"><img src="img/Group 6.png" alt="logo" /></a>
-        </div>
-        <div id="menuOpciones">
-          <nav>
-            <ul id="opciones">
-              <li><a href="index2.html">DISEÑA</a></li>
-              <li><a href="conocenos.html">CONOCENOS</a></li>
-              <li><a href="micuenta.html">MI CUENTA</a></li>
-              <li id="carrito"><a href="carrito.html"><img src="img/10528208 1.png" alt="carrito" /></a>
-              </li>
-            </ul>
-          </nav>
-        </div>
-      </header>
-    </section>
-    <section id="contenidoWeb">
-      <div class="columnaIzq">
-        <div id="pataSup">
-          <img id="patita" src="img/pata.png" alt="logoPata" />
-        </div>
-        <div id="formularioCamiseta">
 
-          <h1 id="tituloDiseña">DISEÑA TU PRENDA</h1>
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link rel="stylesheet" href="css/index2.css" />
+	<title>Document</title>
 
-          <form id="gestionCamiseta" action="GestionCamisetaController" method="POST" enctype="multipart/form-data">
+</head>
+
+<body>
+
+	<section id="menu">
+		<header>
+			<div class="logo"><a href="index2.html"><img src="img/Group 6.png" alt="logo" /></a>
+			</div>
+			<div id="menuOpciones">
+				<nav>
+					<ul id="opciones">
+						<li><a href="index2.html">DISEÑA</a></li>
+						<li><a href="conocenos.html">CONOCENOS</a></li>
+						<li><a href="micuenta.html">MI CUENTA</a></li>
+						<li id="carrito"><a href="carrito.html"><img src="img/10528208 1.png" alt="carrito" /></a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+	</section>
+	<section id="contenidoWeb">
+		<div class="columnaIzq">
+			<div id="pataSup">
+				<img id="patita" src="img/pata.png" alt="logoPata" />
+			</div>
+			<div id="formularioCamiseta">
+
+				<h1 id="tituloDiseña">DISEÑA TU PRENDA</h1>
+
+				<form id="gestionCamiseta" action="GestionCamisetaController" method="POST"
+					enctype="multipart/form-data">
 
 
-            <fieldset id="modelo">
+					<fieldset id="modelo">
 
-                <div id="titulo"><h3>MODELO</h3></div>
-                
-                <div id="seleccion">
-                  <label>
-                      <input type="radio" name="genero" value="hombre" required>Hombre
-                  </label>
-                  <label>
-                      <input type="radio" name="genero" value="mujer" required>Mujer
-                  </label>
-                  <label>
-                      <input type="radio" name="genero" value="niño" required>Niño
-                  </label>
-                </div>
-            </fieldset>
+						<div id="titulo">
+							<h3>MODELO</h3>
+						</div>
 
-            <fieldset id="talla">
+						<div id="seleccion">
+							<label>
+								<input type="radio" name="genero" value="hombre" required>Hombre
+							</label>
+							<label>
+								<input type="radio" name="genero" value="mujer" required>Mujer
+							</label>
+							<label>
+								<input type="radio" name="genero" value="niño" required>Niño
+							</label>
+						</div>
+					</fieldset>
 
-                <div id="titulo"><h3>TALLA</h3></div>        
-                
-                <div id="seleccion">              
-                
-                      <label>
-                          <input type="radio" name="XS" value="XS">XS
-                      </label>
-                      <label>
-                          <input type="radio" name="S" value="S">S
-                      </label>
-                      <label>
-                          <input type="radio" name="M" value="M">M
-                      </label>
-                      <label>
-                          <input type="radio" name="L" value="L">L
-                      </label>
-                      <label>
-                          <input type="radio" name="XL" value="XL">XL
-                      </label>                  
-                </div>
+					<fieldset id="talla">
 
-            </fieldset>
+						<div id="titulo">
+							<h3>TALLA</h3>
+						</div>
 
-            <fieldset id="cantidad">
-                
-            <div id="titulo"><h3>CANTIDAD</h3></div>
-            
-            <div id="seleccion">
+						<div id="seleccion">
 
-              <select id="cantidadCamisetas" name="cantidadCamisetas">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <!-- Puedes agregar más opciones según sea necesario -->
-            </select>
+							<label>
+								<input type="radio" name="XS" value="XS">XS
+							</label>
+							<label>
+								<input type="radio" name="S" value="S">S
+							</label>
+							<label>
+								<input type="radio" name="M" value="M">M
+							</label>
+							<label>
+								<input type="radio" name="L" value="L">L
+							</label>
+							<label>
+								<input type="radio" name="XL" value="XL">XL
+							</label>
+						</div>
 
-            </div>
-            
-            </fieldset>
+					</fieldset>
 
-            <fieldset id="color">
-                
-                <div id="titulo"><h3>COLOR</h3></div>                                       
-                
-                <div id="seleccion">
-                    <select id="colorList" onchange="actualizarColor()">
-                      <option value="#FFFFFF">Blanco</option>
-                      <option value="#3498DB">Azul</option>
-                      <option value="#F1C756">Amarillo</option>
-                      <option value="#FF5733">Rojo</option>
-                      <option value="#000000">Negro</option>
-                      <option value="#27AE60">Verde</option>                                    
-                </div>     
-            </fieldset>   
+					<fieldset id="cantidad">
 
-            
+						<div id="titulo">
+							<h3>CANTIDAD</h3>
+						</div>
 
-          <fieldset id="cantidad">
-                
-              <div id="titulo"><h3>CANTIDAD</h3></div>                                       
-              
-              <div id="seleccion">
-                  <select id="colorList" onchange="actualizarColor()">
-                                                       
-              </div>     
-          
+						<div id="seleccion">
 
-          </fieldset>
+							<select id="cantidadCamisetas" name="cantidadCamisetas">
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+								<option value="4">4</option>
+								<option value="5">5</option>
+								<!-- Puedes agregar más opciones según sea necesario -->
+							</select>
 
-          <fieldset id="imagen">
+						</div>
 
-                <div id="titulo"><h3>SUBE TU DISEÑO</h3></div>
-                
-                <div id="seleccion"><input type="file"></div>  
-                        
-                   
-          </fieldset>                  
-                                 
-          <input  id="enviar" type="submit" value="Tramitar Pedido">
-                  
-         </form>
+					</fieldset>
 
-            
-        </div>
+					<fieldset id="color">
+						<div id="titulo">
+							<h3>COLOR</h3>
+						</div>
+						<select id="selectColor">
+							<option value="blanca">Blanca</option>
+							<option value="negra">Negra</option>
+							<option value="roja">Roja</option>
+							<option value="azul">Azul</option>
+						</select>
 
-        <div id="pataInf">
-          <img id="patita" src="img/pata.png" alt="logoPata" />
-        </div>
-      </div>
-      <div class="columnaDer">
 
-        <img id="modeloMujerBlanco" src="img/ai-generated-8520186_640 1.png" alt="modeloFemenina" />
-      </div>
+					</fieldset>
 
-    </section>
 
-    <section>
-      <footer>
-        <p>&copy; 2024 Tienda de Camisetas. Todos los derechos reservados.</p>
-        <div>
-          <a href="https://www.instagram.com/print.huellas/"><img src="img/instagram.png" alt=""></a>
-          <a href="https://www.facebook.com/printhuellas1/?locale=es_ES"><img src="img/facebook.png" alt=""></a>
-        </div>
-      </footer>
-    </section>
-  </body>
+
+					<fieldset id="cantidad">
+
+						<div id="titulo">
+							<h3>CANTIDAD</h3>
+						</div>
+
+						<div id="seleccion">
+							<select id="colorList" onchange="actualizarColor()">
+
+						</div>
+
+
+					</fieldset>
+
+					<fieldset id="imagen">
+
+						<div id="titulo">
+							<h3>SUBE TU DISEÑO</h3>
+						</div>
+
+						<div id="seleccion"><input type="file"></div>
+
+
+					</fieldset>
+
+					<input id="enviar" type="submit" value="Tramitar Pedido">
+
+				</form>
+
+
+			</div>
+
+			<div id="pataInf">
+				<img id="patita" src="img/pata.png" alt="logoPata" />
+			</div>
+		</div>
+		<div class="columnaDer">
+
+			<img id="modeloMujerBlanco" src="img/ai-generated-8520186_640 1.png" alt="modeloFemenina" />
+		</div>
+
+	</section>
+
+	<section>
+		<footer>
+			<p>&copy; 2024 Tienda de Camisetas. Todos los derechos reservados.</p>
+			<div>
+				<a href="https://www.instagram.com/print.huellas/"><img src="img/instagram.png" alt=""></a>
+				<a href="https://www.facebook.com/printhuellas1/?locale=es_ES"><img src="img/facebook.png" alt=""></a>
+			</div>
+		</footer>
+	</section>
+</body>
+
 </html>

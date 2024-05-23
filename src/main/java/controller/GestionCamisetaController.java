@@ -26,26 +26,28 @@ import dao.CamisetaDAO;
 @WebServlet("/GestionCamisetaController")
 public class GestionCamisetaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+
 	// aqui va la ruta a los archivos
 	private String pathFiles = "C:\\Users\\zappa\\Documents\\FP_DAM\\TiendaCamisetas\\src\\main\\webapp\\fotos";
 	private File uploads = new File(pathFiles);
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public GestionCamisetaController() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public GestionCamisetaController() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		PrintWriter out = response.getWriter();
-		
+
 		CamisetaDAO camiseta;
 		try {
 			camiseta = new CamisetaDAO();
@@ -54,15 +56,17 @@ public class GestionCamisetaController extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		
+
 		String modelo = request.getParameter("modelo");
 		String talla = request.getParameter("talla");
 		String color = request.getParameter("color");
@@ -70,30 +74,29 @@ public class GestionCamisetaController extends HttpServlet {
 		Path path = Paths.get(part.getSubmittedFileName());
 		String fileName = path.getFileName().toString();
 		InputStream input = part.getInputStream();
-		File file =new File(uploads,fileName);
+		File file = new File(uploads, fileName);
 		int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-		
+
 		try {
 			Files.copy(input, file.toPath());
-			
-		}catch (Exception e){
+
+		} catch (Exception e) {
 			System.out.println("error en la copia del archivo");
 			PrintWriter error = response.getWriter();
 			error.print("<h4> Se ha producido un error contacte con el administrador</h4>");
 		}
-		
-		CamisetaModel c1=new CamisetaModel(modelo, talla, color, fileName, cantidad);
+
+		CamisetaModel c1 = new CamisetaModel(modelo, talla, color, fileName, cantidad);
 		System.out.println(c1.toString());
-		
+
 		try {
 			c1.Insert();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		
+
 		response.sendRedirect("carrito.jsp");
-		
+
 	}
 
 }

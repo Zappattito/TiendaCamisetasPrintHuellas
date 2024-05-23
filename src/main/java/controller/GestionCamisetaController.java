@@ -51,7 +51,7 @@ public class GestionCamisetaController extends HttpServlet {
 		CamisetaDAO camiseta;
 		try {
 			camiseta = new CamisetaDAO();
-			out.print(camiseta.dameJason());
+			out.print(camiseta.dameJson());
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -69,13 +69,14 @@ public class GestionCamisetaController extends HttpServlet {
 
 		String modelo = request.getParameter("modelo");
 		String talla = request.getParameter("talla");
+		int cantidad = Integer.parseInt(request.getParameter("cantidad"));
 		String color = request.getParameter("color");
 		Part part = request.getPart("foto");
 		Path path = Paths.get(part.getSubmittedFileName());
 		String fileName = path.getFileName().toString();
 		InputStream input = part.getInputStream();
 		File file = new File(uploads, fileName);
-		int cantidad = Integer.parseInt(request.getParameter("cantidad"));
+		String estado = request.getParameter("estado");
 
 		try {
 			Files.copy(input, file.toPath());
@@ -83,19 +84,19 @@ public class GestionCamisetaController extends HttpServlet {
 		} catch (Exception e) {
 			System.out.println("error en la copia del archivo");
 			PrintWriter error = response.getWriter();
-			error.print("<h4> Se ha producido un error contacte con el administrador</h4>");
+			error.print("<h4> Se ha producido un error contacte con el administrador</h4>") ;
 		}
 
-		CamisetaModel c1 = new CamisetaModel(modelo, talla, color, fileName, cantidad);
-		System.out.println(c1.toString());
+		CamisetaModel c = new CamisetaModel(modelo, talla, cantidad, color, fileName, estado);
+		System.out.println(c.toString());
 
 		try {
-			c1.Insert();
+			c.Insert();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		response.sendRedirect("carrito.jsp");
+		response.sendRedirect("indexAdmin.html");
 
 	}
 

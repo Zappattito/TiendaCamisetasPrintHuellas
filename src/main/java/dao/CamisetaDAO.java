@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import com.google.gson.Gson;
 
 import model.CamisetaModel;
+import model.UsuarioModel;
 
 public class CamisetaDAO {
 	// Creo la conexion de esta clase con la base de datos
@@ -29,42 +30,91 @@ public class CamisetaDAO {
 	// creo el metodo Insert para incluirle los atributos al objeto camiseta
 	public void Insert(CamisetaModel x) throws SQLException {
 
-		String sql = "INSERT INTO camiseta (modelo, talla, cantidad, color, foto) VALUES (?,?,?,?,?)";
+		String sql = "INSERT INTO camiseta (modelo, talla, cantidad, color, foto, estado) VALUES (?,?,?,?,?,?)";
 		PreparedStatement ps = Conex.prepareStatement(sql);
 		ps.setString(1, x.getModelo());
 		ps.setString(2, x.getTalla());
-		ps.setString(3, x.getColor());
-		ps.setString(4, x.getFoto());
-		ps.setInt(5, x.getCantidad());
-
+		ps.setInt(3, x.getCantidad());
+		ps.setString(4, x.getColor());
+		ps.setString(5, x.getFoto());
+		ps.setString(6, x.getEstado());
+		
 		int filas = ps.executeUpdate();
 		ps.close();
 
 	}
+	public CamisetaModel obtenerPorId(int idCamiseta) throws SQLException {
 
-	public ArrayList<CamisetaModel> Listar() throws SQLException {
+		String sql = "SELECT * FROM camiseta WHERE idCamiseta=?";
+		PreparedStatement ps = Conex.prepareStatement(sql);
+		ps.setInt(1, idCamiseta);
 
-		PreparedStatement ps = Conex.prepareStatement("SELECT * FROM camiseta");
 		ResultSet rs = ps.executeQuery();
 
-		ArrayList<CamisetaModel> result = null;
+		rs.next();
 
-		while (rs.next()) {
-			if (result == null) {
-				result = new ArrayList<>();
-			}
-			result.add(new CamisetaModel(rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5),
-					rs.getInt(6)));
+		CamisetaModel c = new CamisetaModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
+				rs.getString(5), rs.getString(6), rs.getString(7));
+
+		return c;
+	}
+	
+public void borrarCamiseta(int idCamiseta) throws SQLException {
+		
+		String sql = "DELETE FROM camiseta WHERE idCamiseta = ?";
+        PreparedStatement ps = Conex.prepareStatement(sql);
+
+        ps.setInt(1, idCamiseta);
+
+        ps.executeUpdate();
+        ps.close();
+	}
+
+public void actualizar(CamisetaModel c) throws SQLException {
+	System.out.println(c);
+	String sql = "UPDATE usuario SET modelo=?, talla=?, cantidad=?, color=?, foto=?, estado=?, WHERE idCamiseta=?";
+	PreparedStatement ps = Conex.prepareStatement(sql);
+	ps.setString(1, c.getModelo());
+	ps.setString(2, c.getTalla());
+	ps.setInt(3, c.getCantidad());
+	ps.setString(4, c.getColor());
+	ps.setString(5, c.getFoto());
+	ps.setString(6, c.getEstado());
+	ps.setInt(7, c.getIdCamiseta());
+
+	ps.executeUpdate();
+	ps.close();
+
+}
+
+public ArrayList<CamisetaModel> Listar() throws SQLException {
+
+	PreparedStatement ps = Conex.prepareStatement("SELECT * FROM camiseta");// se podria poner el nombre de los
+																			// campos
+	ResultSet rs = ps.executeQuery();
+
+	ArrayList<CamisetaModel> result = null;
+
+	while (rs.next()) {
+		if (result == null) {
+			result = new ArrayList<>();
 		}
-		return result;
+		result.add(new CamisetaModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getInt(4),
+				rs.getString(5), rs.getString(6), rs.getString(7)));
 	}
 
-	public String dameJason() throws SQLException {
-		String json = "";
-		Gson gson = new Gson();
+	return result;
 
-		json = gson.toJson(this.Listar());
+}
 
-		return json;
-	}
+public String dameJson() throws SQLException {
+
+	String json = "";
+	Gson gson = new Gson();
+
+	json = gson.toJson(this.Listar());
+
+	return json;
+}
+
 }

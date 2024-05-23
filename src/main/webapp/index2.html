@@ -37,11 +37,23 @@
 
 				<h1 id="tituloDiseña">DISEÑA TU PRENDA</h1>
 
-				<form id="gestionCamiseta" action="GestionCamisetaController" method="POST"
+				<form name="camisetas" id="gestionCamiseta" action="GestionCamisetaController" method="POST"
 					enctype="multipart/form-data">
+					
+					<ul>
+					<input type="hidden" id="idUsuario" name="id">
+					<li><label>Modelo</label><input id="modelo" type="text" name="modelo"></li>
+					<li><label>Talla</label><input id="talla" type="text" name="talla"></li>
+					<li><label>Cantidad</label><input id="cantidad" type="text" name="cantidad"></li>
+					<li><label>Color</label><input id="color" type="text" name="color"></li>
+					<li><label>Foto</label><input id="foto" type="file" name="foto" accept="image/*"></li>
+					<li><label>Estado</label><input id="estado" type="text" name="estado"></li>
+				
+					<li><input type="submit" onclick="validarFormulario()" value="Tramitar Pedido"></li>
+				</ul>
 
-
-					<fieldset id="modelo">
+				</form>
+					<!--<fieldset id="modelo">
 
 						<div id="titulo">
 							<h3>MODELO</h3>
@@ -101,7 +113,7 @@
 								<option value="3">3</option>
 								<option value="4">4</option>
 								<option value="5">5</option>
-								<!-- Puedes agregar más opciones según sea necesario -->
+								 Puedes agregar más opciones según sea necesario 
 							</select>
 
 						</div>
@@ -137,9 +149,9 @@
 
 					</fieldset>
 
-					<input id="enviar" type="submit" value="Tramitar Pedido">
+					<input id="enviar" type="submit" value="Tramitar Pedido"> -->
 
-				</form>
+			
 
 
 			</div>

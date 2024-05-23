@@ -3,16 +3,16 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="css/galeria.css" />
-	<script src="galeria.js"></script>
-	<title>Galeria</title>
-
+	<link rel="stylesheet" href="css/indexAdmin.css" />
+	<script rel="stylesheet" src="js/actualizarPedidos.js"></script>
+	<title>ACTUALIZAR PEDIDOS</title>
 </head>
 
 <body>
 	<section id="menu">
 		<header>
 			<div class="logo"><a href="index2.html"><img src="img/Group 6.png" alt="logo" /></a>
+
 			</div>
 			<div id="menuOpciones">
 				<nav>
@@ -27,10 +27,29 @@
 			</div>
 		</header>
 	</section>
-	<h1>Lista de fotos</h1>
-	<div id="resultados"></div>
 
-	<a href="ListadoController">Ejecuta Lista</a>
+	<h1>HOLA MUCHACHOS</h1>
+	<div id="actualizarDatos">
+		<form name="altas" id="ActualizaPedido" action="ActualizarPedidoController" method="post"
+			enctype="multipart/form-data">
+
+			<ul>
+				<input type="hidden" id="idCamiseta" name="idCamiseta">
+				<li><label>Modelo</label><input id="modelo" type="text" name="modelo"></li>
+				<li><label>Talla</label><input id="talla" type="text" name="talla"></li>
+				<li><label>Cantidad</label><input id="cantidad" type="text" name="cantidad"></li>
+				<li><label>Color</label><input id="color" type="text" name="color"></li>
+				<li><label>Foto</label><input id="foto" type="file" name="foto" accept="image/*"></li>
+				<li><label>Estado</label><input id="estado" type="text" name="estado"></li>
+				<li><input type="submit" onclick="validarFormulario()" value="Actualizar"></li>
+			</ul>
+
+
+
+	</div>
+
+
+
 	<section>
 		<footer>
 			<p>&copy; 2024 Tienda de Camisetas. Todos los derechos reservados.</p>

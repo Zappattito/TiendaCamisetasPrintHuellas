@@ -43,7 +43,7 @@ public class CamisetaDAO {
 		ps.close();
 
 	}
-	public CamisetaModel obtenerPorId(int idCamiseta) throws SQLException {
+public CamisetaModel obtenerPorId(int idCamiseta) throws SQLException {
 
 		String sql = "SELECT * FROM camiseta WHERE idCamiseta=?";
 		PreparedStatement ps = Conex.prepareStatement(sql);

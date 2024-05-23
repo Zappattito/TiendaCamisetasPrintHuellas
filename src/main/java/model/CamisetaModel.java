@@ -2,7 +2,10 @@ package model;
 
 import java.sql.SQLException;
 
+import com.google.gson.Gson;
+
 import dao.CamisetaDAO;
+import dao.UsuarioDAO;
 
 public class CamisetaModel {
 
@@ -170,5 +173,46 @@ public class CamisetaModel {
 	public void Insert() throws Exception {
 		CamisetaDAO.getInstance().Insert(this);
 	}
+	
+	public void obtenerPorId(int idCamiseta) throws Exception {
 
+		CamisetaModel aux = CamisetaDAO.getInstance().obtenerPorId(idCamiseta);
+
+		this.setIdCamiseta(aux.getIdCamiseta());
+		this.setModelo(aux.getModelo());
+		this.setTalla(aux.getTalla());
+		this.setCantidad(aux.getCantidad());
+		this.setColor(aux.getColor());
+		this.setFoto(aux.getFoto());
+		this.setEstado(aux.getEstado());
+
+	}
+
+	public void actualizar() throws SQLException, Exception {
+		CamisetaDAO.getInstance().actualizar(this);
+		System.out.println(this);
+	}
+	public String dameJson() {
+		String json = "";
+		Gson gson = new Gson();
+
+		json = gson.toJson(this);
+		return json;
+
+	}
+
+	public String actualizaJson() {
+
+		String json = "";
+		Gson gson = new Gson();
+
+		json = gson.toJson(this);
+
+		return json;
+	}
+	
+	public void borrarCami(int idCamiseta) throws SQLException, Exception {
+		CamisetaDAO.getInstance().borrarCamiseta(idCamiseta);
+	}
+	
 }

@@ -5,7 +5,7 @@ import java.sql.SQLException;
 import com.google.gson.Gson;
 
 import dao.CamisetaDAO;
-import dao.UsuarioDAO;
+
 
 public class CamisetaModel {
 

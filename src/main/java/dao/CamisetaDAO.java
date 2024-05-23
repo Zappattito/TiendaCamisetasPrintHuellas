@@ -16,11 +16,11 @@ public class CamisetaDAO {
 	public static Connection Conex = null;
 	private static CamisetaDAO instance = null;
 
-	public CamisetaDAO() throws Exception {
+public CamisetaDAO() throws Exception {
 		this.Conex = ConectionDB.getConexion();
 	}
 
-	public static CamisetaDAO getInstance() throws Exception {
+public static CamisetaDAO getInstance() throws Exception {
 		if (instance == null) {
 			instance = new CamisetaDAO();
 		}
@@ -28,7 +28,7 @@ public class CamisetaDAO {
 	}
 
 	// creo el metodo Insert para incluirle los atributos al objeto camiseta
-	public void Insert(CamisetaModel x) throws SQLException {
+public void Insert(CamisetaModel x) throws SQLException {
 
 		String sql = "INSERT INTO camiseta (modelo, talla, cantidad, color, foto, estado) VALUES (?,?,?,?,?,?)";
 		PreparedStatement ps = Conex.prepareStatement(sql);
@@ -72,7 +72,7 @@ public void borrarCamiseta(int idCamiseta) throws SQLException {
 
 public void actualizar(CamisetaModel c) throws SQLException {
 	System.out.println(c);
-	String sql = "UPDATE usuario SET modelo=?, talla=?, cantidad=?, color=?, foto=?, estado=?, WHERE idCamiseta=?";
+	String sql = "UPDATE camiseta SET modelo=?, talla=?, cantidad=?, color=?, foto=?, estado=? WHERE idCamiseta=?";
 	PreparedStatement ps = Conex.prepareStatement(sql);
 	ps.setString(1, c.getModelo());
 	ps.setString(2, c.getTalla());
@@ -116,5 +116,6 @@ public String dameJson() throws SQLException {
 
 	return json;
 }
+
 
 }

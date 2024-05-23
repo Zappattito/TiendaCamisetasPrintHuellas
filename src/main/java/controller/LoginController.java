@@ -70,21 +70,19 @@ public class LoginController extends HttpServlet {
 
 		String correo = request.getParameter("correo");
 		String contrasena = getMD5(request.getParameter("contrasena"));
-		// String permiso = request.getParameter("permiso"); // esto hay que parsearlo
-
+		
 		System.out.println(correo);
 		System.out.println(contrasena);
 
 		try {
 			UsuarioModel usuarioLogin = new UsuarioModel();
-			usuarioLogin.setCorreo(correo);
-			usuarioLogin.setContrasena(contrasena);
+			
 
 			UsuarioDAO usuarioDAO = new UsuarioDAO();
-			boolean existeUsuario = usuarioDAO.comprobarCuenta(usuarioLogin);
-			System.out.println(existeUsuario);
-
-			if (existeUsuario) {
+			//boolean existeUsuario = usuarioDAO.comprobarCuenta(usuarioLogin);
+			//System.out.println(existeUsuario);
+			usuarioLogin = usuarioDAO.comprobarCuenta(correo, contrasena);
+			if (usuarioLogin != null) {
 				// aqui vamos a traer el usuario de base de datos haciendo una select a traves
 				// del correo
 				// y para eso debemos crear un método en usuarioDAO como lo hemos hecho en el
@@ -96,10 +94,26 @@ public class LoginController extends HttpServlet {
 				System.out.println(sesion);
 
 				if (sesion != null) {
+					
+					
 					System.out.println("bien");
 					sesion.setAttribute("correo", usuarioLogin.getCorreo());
-					RequestDispatcher rd = request.getRequestDispatcher("indexAdmin.html");
-					rd.forward(request, response);
+					sesion.setAttribute("permiso", usuarioLogin.getPermiso());
+					
+					int permiso = usuarioLogin.getPermiso();
+					System.out.println(permiso);
+					String redirection = "";
+							if (permiso == 1) {
+							  redirection = ("indexAdmin.html");
+							} else {
+							  redirection = ("index2.html");
+							}
+						response.sendRedirect(redirection);
+						//if(permiso ==9) {
+							//RequestDispatcher rd = request.getRequestDispatcher("indexAdmin.html");
+						//}
+					//RequestDispatcher rd = request.getRequestDispatcher("indexAdmin.html");
+					//rd.forward(request, response);
 
 				} else {
 					System.out.println("mal");

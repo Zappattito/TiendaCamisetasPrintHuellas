@@ -56,19 +56,14 @@ nav ul li {
     flex-direction: row;
 }
 
-#listado{
+#pedido{
 	display: flex;
 	justify-content: center;
 	background-color: skyblue;
 }
-#tituloAU{
+#tituloAP{
 	display: flex;
 	justify-content: center;
 	color: red;
 }
-
-
-
-
-
 

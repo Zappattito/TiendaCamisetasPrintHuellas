@@ -96,7 +96,7 @@ public class GestionCamisetaController extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		response.sendRedirect("indexAdmin.html");
+		response.sendRedirect("pedidoEnviado.html");
 
 	}
 

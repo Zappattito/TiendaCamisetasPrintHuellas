@@ -52,23 +52,43 @@ nav ul li {
 
 
 #contenidoWeb{
+	
     display: flex;
     flex-direction: row;
 }
 
-#listado{
+#pedido{
 	display: flex;
 	justify-content: center;
 	background-color: skyblue;
 }
-#tituloAU{
+#tituloAP{
 	display: flex;
 	justify-content: center;
 	color: red;
 }
 
-
-
-
-
-
+.container {
+  	text-align: center;
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.message {
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.button {
+    font-size: 20px;
+    padding: 15px 30px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+.button:hover {
+    background-color: #0056b3;
+}

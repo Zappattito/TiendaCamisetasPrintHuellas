@@ -79,4 +79,14 @@
     <servlet-name>ActualizarUsuarioController</servlet-name>
     <url-pattern>/ActualizarUsuarioController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ActualizarPedidoController</display-name>
+    <servlet-name>ActualizarPedidoController</servlet-name>
+    <servlet-class>controller.ActualizarPedidoController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ActualizarPedidoController</servlet-name>
+    <url-pattern>/ActualizarPedidoController</url-pattern>
+  </servlet-mapping>
 </web-app>

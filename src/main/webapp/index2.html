@@ -4,6 +4,7 @@
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<link rel="stylesheet" href="css/index2.css" />
+	<script src="js/index2.js"></script>
 	<title>Document</title>
 
 </head>
@@ -36,121 +37,24 @@
 
 				<h1 id="tituloDiseña">DISEÑA TU PRENDA</h1>
 
-				<form id="gestionCamiseta" action="GestionCamisetaController" method="POST"
+				<form name="camisetas" id="gestionCamiseta" action="GestionCamisetaController" method="POST"
 					enctype="multipart/form-data">
 
+					<ul>
+						<input type="hidden" id="idUsuario" name="id">
+						<li><label>Modelo: </label><input id="modelo" type="text" name="modelo"></li>
+						<li><label>Talla:</label><input id="talla" type="text" name="talla"></li>
+						<li><label>Cantidad:</label><input id="cantidad" type="text" name="cantidad"></li>
+						<li><label>Color:</label><input id="color" type="text" name="color"></li>
+						<li><label>Foto:</label><input id="foto" type="file" name="foto" accept="image/*"></li>
+						<li><label>Estado:</label><input id="estado" type="text" name="estado"></li>
 
-					<fieldset id="modelo">
-
-						<div id="titulo">
-							<h3>MODELO</h3>
-						</div>
-
-						<div id="seleccion">
-							<label>
-								<input type="radio" name="genero" value="hombre" required>Hombre
-							</label>
-							<label>
-								<input type="radio" name="genero" value="mujer" required>Mujer
-							</label>
-							<label>
-								<input type="radio" name="genero" value="niño" required>Niño
-							</label>
-						</div>
-					</fieldset>
-
-					<fieldset id="talla">
-
-						<div id="titulo">
-							<h3>TALLA</h3>
-						</div>
-
-						<div id="seleccion">
-
-							<label>
-								<input type="radio" name="XS" value="XS">XS
-							</label>
-							<label>
-								<input type="radio" name="S" value="S">S
-							</label>
-							<label>
-								<input type="radio" name="M" value="M">M
-							</label>
-							<label>
-								<input type="radio" name="L" value="L">L
-							</label>
-							<label>
-								<input type="radio" name="XL" value="XL">XL
-							</label>
-						</div>
-
-					</fieldset>
-
-					<fieldset id="cantidad">
-
-						<div id="titulo">
-							<h3>CANTIDAD</h3>
-						</div>
-
-						<div id="seleccion">
-
-							<select id="cantidadCamisetas" name="cantidadCamisetas">
-								<option value="1">1</option>
-								<option value="2">2</option>
-								<option value="3">3</option>
-								<option value="4">4</option>
-								<option value="5">5</option>
-								<!-- Puedes agregar más opciones según sea necesario -->
-							</select>
-
-						</div>
-
-					</fieldset>
-
-					<fieldset id="color">
-						<div id="titulo">
-							<h3>COLOR</h3>
-						</div>
-						<select id="selectColor">
-							<option value="blanca">Blanca</option>
-							<option value="negra">Negra</option>
-							<option value="roja">Roja</option>
-							<option value="azul">Azul</option>
-						</select>
-
-
-					</fieldset>
-
-
-
-					<fieldset id="cantidad">
-
-						<div id="titulo">
-							<h3>CANTIDAD</h3>
-						</div>
-
-						<div id="seleccion">
-							<select id="colorList" onchange="actualizarColor()">
-
-						</div>
-
-
-					</fieldset>
-
-					<fieldset id="imagen">
-
-						<div id="titulo">
-							<h3>SUBE TU DISEÑO</h3>
-						</div>
-
-						<div id="seleccion"><input type="file"></div>
-
-
-					</fieldset>
-
-					<input id="enviar" type="submit" value="Tramitar Pedido">
+						<li><input type="submit" onclick="validarFormulario()" value="Tramitar Pedido" ></li>
+					</ul>
 
 				</form>
+
+
 
 
 			</div>
@@ -162,6 +66,9 @@
 		<div class="columnaDer">
 
 			<img id="modeloMujerBlanco" src="img/ai-generated-8520186_640 1.png" alt="modeloFemenina" />
+			<div id="diseno">
+				<h3>Inserta aquí tu diseño</h3>
+			</div>
 		</div>
 
 	</section>

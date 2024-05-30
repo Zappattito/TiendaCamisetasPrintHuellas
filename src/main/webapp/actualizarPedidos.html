@@ -3,9 +3,9 @@
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<link rel="stylesheet" href="css/formulario.css" />
-	<script src="js/formulario.js"></script>
-	<title>Document</title>
+	<link rel="stylesheet" href="css/indexAdmin.css" />
+	<script rel="stylesheet" src="js/actualizarPedidos.js"></script>
+	<title>ACTUALIZAR PEDIDOS</title>
 </head>
 
 <body>
@@ -27,28 +27,28 @@
 			</div>
 		</header>
 	</section>
-	<section id="formulario">
-		
-			<h1>Alta de Usuario</h1>
-			
-			<form name="altas" id="registroUsuario" action="GestionUsuariosController" method="post"
-				enctype="multipart/form-data">
 
-				<ul>
-					<input type="hidden" id="idUsuario" name="id">
-					<li><label>Nombre</label><input id="nombre" type="text" name="nombre"></li>
-					<li><label>Correo Electronico</label><input id="correo" type="email" name="correo"></li>
-					<li><label>Contraseña</label><input id="contrasena" type="password" name="contrasena"></li>
-					<li><label>Foto</label><input id="foto" type="file" name="foto" accept="image/*"></li>
-				
-					<li><input type="submit" onclick="validarFormulario()" value="Registrarse"></li>
-				</ul>
-	
-			</form>
+	<h1>HOLA MUCHACHOS</h1>
+	<div id="actualizarDatos">
+		<form name="altas" id="ActualizaPedido" action="ActualizarPedidoController" method="post"
+			enctype="multipart/form-data">
 
-	</section>
+			<ul>
+				<input type="hidden" id="idCamiseta" name="idCamiseta">
+				<li><label>Modelo</label><input id="modelo" type="text" name="modelo"></li>
+				<li><label>Talla</label><input id="talla" type="text" name="talla"></li>
+				<li><label>Cantidad</label><input id="cantidad" type="text" name="cantidad"></li>
+				<li><label>Color</label><input id="color" type="text" name="color"></li>
+				<li><label>Foto</label><input id="foto" type="file" name="foto" accept="image/*"></li>
+				<li><label>Estado</label><input id="estado" type="text" name="estado"></li>
+				<li><input type="submit" onclick="validarFormulario()" value="Actualizar"></li>
+			</ul>
 
-	
+
+
+	</div>
+
+
 
 	<section>
 		<footer>

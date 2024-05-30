@@ -126,34 +126,25 @@ public class UsuarioDAO {
 
 		return json;
 	}
-
-	public boolean comprobarCuenta(UsuarioModel usuarioLogin) throws SQLException {
+    
+	public UsuarioModel comprobarCuenta(String correo, String contrasena) throws SQLException {
 
 		// TODO Auto-generated method stub
-		PreparedStatement ps = Conex.prepareStatement("SELECT * FROM usuario WHERE correo = ? AND contrasena = ?");// se
-																													// podria
-																													// poner
-																													// el
-																													// nimbre
-																													// de
-																													// los
-																													// campos
-		ps.setString(1, usuarioLogin.getCorreo());
-		ps.setString(2, usuarioLogin.getContrasena());
+		PreparedStatement ps = Conex.prepareStatement("SELECT * FROM usuario WHERE correo = ? AND contrasena = ?");
+		ps.setString(1, correo);
+		ps.setString(2, contrasena);
 		ResultSet rs = ps.executeQuery();
+		
+		UsuarioModel u = null;
+		
+		if (rs.next()) {
+			
+            return new UsuarioModel(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+					rs.getString(5), rs.getInt(6));
+        }
+        return null;
+		
 
-		int totalFilas = 0;
-
-		while (rs.next()) {
-			totalFilas++;
-		}
-
-		System.out.println(totalFilas);
-		if (totalFilas > 0) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 
 }

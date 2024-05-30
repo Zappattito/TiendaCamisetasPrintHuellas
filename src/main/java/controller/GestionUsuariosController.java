@@ -164,7 +164,7 @@ public class GestionUsuariosController extends HttpServlet {
 			e.printStackTrace();
 		}
 
-		response.sendRedirect("micuenta.html");
+		response.sendRedirect("registroCorrecto.html");
 	}
 
 }

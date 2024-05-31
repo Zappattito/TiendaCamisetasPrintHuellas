@@ -7,6 +7,13 @@ import com.google.gson.Gson;
 
 import dao.UsuarioDAO;
 
+/**
+ * Esta clase nos permite crear el objeto Usuario con todos sus atributos
+ * 
+ * @author: Victor Zapata P.
+ * @version: 31/05/2024/Z v 1.0
+ * 
+ */
 public class UsuarioModel {
 
 	private int idUsuario;
@@ -23,6 +30,7 @@ public class UsuarioModel {
 	public UsuarioModel() {
 
 	}
+
 	/**
 	 * Constructor para la creacion del objeto desde el formulario
 	 * 
@@ -140,7 +148,7 @@ public class UsuarioModel {
 	}
 
 	/**
-	 * Método para modificar el IDuSUARIO, en este caso no lo usaremos pero lo
+	 * Método para modificar el IdUsuario, en este caso no lo usaremos pero lo
 	 * dejamos para futuras implementaciones
 	 * 
 	 * @param idUsuario parametro "idUsuario" a modificar
@@ -150,8 +158,20 @@ public class UsuarioModel {
 		this.idUsuario = idUsuario;
 	}
 
-
-
+	/**
+	 * Constructor sin el idUsuario que nos permite modificar todo sus atributos sin
+	 * tocar el id
+	 * 
+	 * @param nombre     Atributo de solo texto donde se inserta el nombre del
+	 *                   usuario
+	 * @param correo     Atributo de solo texto donde se inserta el correo del
+	 *                   usuario
+	 * @param contrasena Atributo donde se inserta la contraseña
+	 * @param foto       Atributo correspondiente a la ruta de la foto insertada en
+	 *                   el objeto Usuario
+	 * @param permiso    Atributo de tipo INT que permite conceder un permiso a un
+	 *                   usuario ADMIN=1 Usuario=9
+	 */
 
 	public UsuarioModel(String nombre, String correo, String contrasena, String foto, int permiso) {
 		super();
@@ -162,13 +182,36 @@ public class UsuarioModel {
 		this.permiso = permiso;
 	}
 
+	/**
+	 * metodo para obtener el permiso
+	 * 
+	 * @return un int con el permiso del usuario
+	 */
 	public int getPermiso() {
 		return permiso;
 	}
 
+	/**
+	 * metodo para modificar un permiso
+	 * 
+	 * @param permiso parametro a modificar
+	 */
 	public void setPermiso(int permiso) {
 		this.permiso = permiso;
 	}
+
+	/**
+	 * constructor sin los atributos id y permiso que no se podrán modificar por el
+	 * usuario
+	 * 
+	 * @param nombre               nos proporciona el nombre del ususario
+	 * @param correo               nos proporciona el correo del ususario
+	 * @param contrasena           nos proporciona la contraseña encriptada del
+	 *                             ususario
+	 * @param confirmar_contrasena no usamos el confirmar contrasena en situaciones
+	 *                             posteriores, se usó solo de prueba
+	 * @param foto                 nos da la ruta de la forto del usuario
+	 */
 
 	public UsuarioModel(String nombre, String correo, String contrasena, String confirmar_contrasena, String foto) {
 		super();
@@ -178,14 +221,29 @@ public class UsuarioModel {
 		this.foto = foto;
 	}
 
+	/**
+	 * Nos sirve para obtener la ruta de la foto
+	 * 
+	 * @return un Sring con la ruta de la foto
+	 */
+
 	public String getFoto() {
 		return foto;
 	}
 
+	/**
+	 * nos sirve para modificar la ruta de la foto o imagen del ususario
+	 * 
+	 * @param foto nos da la ruta de la foto/imagen del ususario
+	 */
 	public void setFoto(String foto) {
 		this.foto = foto;
 	}
 
+	/**
+	 * metodo tio String que recoge todos los parametros de un objeto en este caso
+	 * del Ussuario
+	 */
 	@Override
 	public String toString() {
 		return "UsuarioModel [idUsuario=" + idUsuario + ", nombre=" + nombre + ", correo=" + correo + ", contrasena="
@@ -193,7 +251,8 @@ public class UsuarioModel {
 	}
 
 	/**
-	 * Método Insertar donde creamos esa comunicacion con Dao
+	 * Método Insertar donde creamos esa comunicacion con Dao y la posterior
+	 * insercion de los atributos en la base de datos
 	 * 
 	 * @throws Exception Atrapamos las posibles excepciones
 	 */
@@ -203,6 +262,13 @@ public class UsuarioModel {
 
 	}
 
+	/**
+	 * metodo para extraer de la base de datos toda los parámetros a traves del id
+	 * 
+	 * @param idUsuario nos da el id del ususario del que queremos obtener sus
+	 *                  parámetros desde la base de datos
+	 * @throws Exception atrapamos la execpcionnes del metodo ObtenerPorId
+	 */
 	public void obtenerPorId(int idUsuario) throws Exception {
 
 		UsuarioModel aux = UsuarioDAO.getInstance().obtenerPorId(idUsuario);
@@ -216,11 +282,24 @@ public class UsuarioModel {
 
 	}
 
+	/**
+	 * Metodo que sirve para actualizar un objeto que previamente se ha recogido a
+	 * traves de su id
+	 * 
+	 * @throws SQLException atrapa excepciones de la base de datos
+	 * @throws Exception    atrapa las excepciones del metodo actualizar
+	 */
+
 	public void actualizar() throws SQLException, Exception {
 		UsuarioDAO.getInstance().actualizar(this);
 		System.out.println(this);
 	}
 
+	/**
+	 * Metodo para recoger la información de la base de datos
+	 * 
+	 * @return el Json que pintaremos en el front
+	 */
 	public String dameJson() {
 		String json = "";
 		Gson gson = new Gson();
@@ -230,6 +309,12 @@ public class UsuarioModel {
 
 	}
 
+	/**
+	 * Metodo que sirve para recoger los datos actualizados del Usuario en la base
+	 * da datos y mostrarlo en el front
+	 * 
+	 * @return el Json que queremos pintar en el fron del usuario modificado
+	 */
 	public String actualizaJson() {
 
 		String json = "";
@@ -239,7 +324,14 @@ public class UsuarioModel {
 
 		return json;
 	}
-	
+
+	/**
+	 * Metodo que sirve para borrar/eliminar un objeto Usuario de la base de datos
+	 * 
+	 * @param idUsuario proporciona el id del usuario a borrar
+	 * @throws SQLException atrapa las excepcionnes de la base de datos
+	 * @throws Exception    atrapa las excepciones generadas por el metodo borrarUsu
+	 */
 	public void borrarUsu(int idUsuario) throws SQLException, Exception {
 		UsuarioDAO.getInstance().borrarUsuario(idUsuario);
 	}
